@@ -1,0 +1,18 @@
+#IntelliJ
+*.iml
+.idea/*
+
+#vim
+*.swp
+*.swo
+*~
+tags
+
+#macos files
+.DS_STORE
+
+#secret company aliases etc
+.secrets-zshrc
+
+#local env config
+.env.local

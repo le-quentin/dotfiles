@@ -1,0 +1,47 @@
+" source the base vimrc
+source ~/.vimrc-base
+
+" PLUGINS
+call plug#begin('~/.vim/plugged')
+
+" Surroundings, to add verbs to delete/change/... surroundings
+Plug 'tpope/vim-surround'
+
+" Advanced repeat, to be able to repeat plugins action with .
+Plug 'tpope/vim-repeat'
+
+" Git wrapper to add commands like :G (for status), :Gblame, :Gedit
+Plug 'tpope/vim-fugitive'
+
+" CamelCase motions
+Plug 'chaoren/vim-wordmotion'
+
+" REST client in vim
+Plug 'diepm/vim-rest-console'
+
+" Use jq (json processor, to filter json paths for example) inside vim
+Plug 'bfrg/vim-jqplay'
+
+" END OF PLUGINS
+call plug#end()
+
+" VRC use leader r as shortcut to trigger a request
+let g:vrc_set_default_mapping = 0
+map <Leader>r :call VrcQuery()<CR>
+
+" VRC auto format json in REST responses by setting default content-type to json
+let g:vrc_response_default_content_type = 'application/json'
+
+" VRC Curl default options 
+let g:vrc_curl_opts = {
+  \ '-sS': '',
+  \ '--connect-timeout': 10,
+  \ '--max-time': 60,
+\}
+
+" jqplay setup, path to jq and options to trigger jq when leaving insert mode
+let g:jqplay = {
+    \ 'exe': '/usr/local/bin/jq',
+    \ 'opts': '--tab',
+    \ 'autocmds': ['InsertLeave']
+    \ }

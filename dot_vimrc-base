@@ -1,0 +1,21 @@
+" Different cursor in edit mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Remap Leader to space key
+:let mapleader = " "
+
+" Hybrid line numbers
+:set number
+:set relativenumber
+:nnoremap <leader>n :set relativenumber!<CR>
+
+" Enable syntax highlighting
+syntax enable
+
+" Automatic indentation on same level
+set autoindent 
+
+" Automatically reload file if it changed on disk
+set autoread
+au CursorHold,CursorHoldI * checktime
