@@ -1,0 +1,11 @@
+[core]
+	excludesfile = /Users/quentin/.gitignore
+[user]
+	email = quentin.bonnet.work@gmail.com
+	name = Quentin Bonnet
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[includeIf "gitdir:disney/repos/"]
+	path = ~/perso/config/.disney-gitconfig
+[alias]
+	stash-staged = "!f() { git stash push -m \"$1\" -- $(git diff --staged --name-only); }; f"

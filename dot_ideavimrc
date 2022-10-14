@@ -1,0 +1,11 @@
+# Source the regular vimrc
+source ~/.vimrc
+
+# Sadly, ideavim doesn't support plugings out of the box, but only a bunch of emulated ones
+# Here, we enable the surrounds and the commentary plugins
+set surround
+set commentary
+
+# Bind [l and ]l to IntelliJ actions to go to previous and next error
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>

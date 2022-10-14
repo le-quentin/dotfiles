@@ -1,0 +1,105 @@
+set nocompatible
+source ~/.vimrc-base
+
+" Enable autosave to never lose local changes. 
+" /!\ safe to use with git repos, a little dangerous otherwise
+set updatetime=200
+au CursorHold * silent! update
+
+" Make undo persistent in order to have it working with autosave
+set undofile
+set undodir=~/.vim/undodir
+set undolevels=5000
+
+" Configure default indent settings for some languages
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+
+" Smart insertion of code blocks
+inoremap {<CR> {<CR>}<Esc>ko
+inoremap [<CR> [<CR>]<Esc>ko
+inoremap (<CR> (<CR>)<Esc>ko
+
+" PLUGINS
+call plug#begin('~/.vim/plugged-ide')
+
+" Surroundings, to add verbs to delete/change/... surroundings
+Plug 'tpope/vim-surround'
+
+" Advanced repeat, to be able to repeat plugins action with .
+Plug 'tpope/vim-repeat'
+
+" fzf, aka FuzzyFile search
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" vimpolyglot, to get better syntax highlighting for most languages
+Plug 'sheerun/vim-polyglot'
+
+" IntelliJ darcula theme
+" Plug 'doums/darcula'
+Plug 'isobit/vim-darcula-colors'
+
+" coc.nvim, an autocompletion engine working with many language servers
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Go language server
+Plug 'fatih/vim-go'
+
+" Auto align tabulations
+Plug 'godlygeek/tabular'
+
+" Status line
+Plug 'vim-airline/vim-airline'
+
+" Git wrapper to add commands like :G (for status), :Gblame, :Gedit
+Plug 'tpope/vim-fugitive'
+
+" Test runner wrapper
+Plug 'janko/vim-test'
+
+" CamelCase motions
+Plug 'bkad/CamelCaseMotion'
+
+" END OF PLUGINS
+call plug#end()
+
+" IntellJ-like dark theme (https://github.com/doums/darcula)
+colorscheme darcula
+set termguicolors
+let g:lightline = { 'colorscheme': 'darculaOriginal' }
+
+" New FZF command to search for files in the current project
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+
+" Config for autocompletion with coc.nvim 
+source ~/.coc.nvim.vimrc
+
+" Bind gd to tag goto, <C-]>
+" Disabling this, in favor of using LSP
+" nnoremap gd <C-]>
+
+" USING FZF TO SEARCH PROJECT
+" Leader o/O => search tag/file accross project
+" Leader f => project text search
+" Leader t => search tag inside current file
+nnoremap <Leader>o :Tags<CR>
+nnoremap <Leader>O :ProjectFiles<CR>
+nnoremap <Leader>f :Ag<CR>
+nnoremap <Leader>t :BTags<CR>
+" Leader T => search for test class associated with current class (by
+" searching global tags starting with the class name)
+nnoremap <Leader>T :execute ':Tags ' . expand('%:t:r') . ' Test'<CR>
+
+" Shortcuts for the test wrapper
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
+" vim-go config
+" source ~/.vim-go.vimrc
