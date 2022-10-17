@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/quentin/.gitignore
+	excludesfile = ~/.gitignore
 [user]
 	email = quentin.bonnet.work@gmail.com
 	name = Quentin Bonnet
