@@ -33,7 +33,10 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id "rofi -show combi -modes combi -combi-modes \\"drun,run\\""
+# bindsym $mod+d exec --no-startup-id "rofi -show combi -modes combi -combi-modes \\"drun,run\\"\
+# -theme ~/.config/rofi/launchers/type-1/style-9.rasi"
+bindsym $mod+d exec --no-startup-id "rofi -modes \\"drun,run\\" -show drun\
+ -matching prefix -drun-match-fields name -theme ~/.config/rofi/launchers/type-3/style-3.rasi"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
