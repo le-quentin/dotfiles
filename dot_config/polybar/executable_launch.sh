@@ -6,12 +6,12 @@ themes=(`ls --hide="launch.sh" $dir`)
 launch_bar_base() {
 	# Launch the bar
 	if [[ "$style" == "hack" || "$style" == "cuts" ]]; then
-		MONITOR=$m DIR=$dir STYLE=$style polybar -q top -c "$dir/$style/config.ini" &
-		MONITOR=$m DIR=$dir STYLE=$style polybar -q bottom -c "$dir/$style/config.ini" &
+		polybar -q top -c "$dir/$style/config.ini" &
+		polybar -q bottom -c "$dir/$style/config.ini" &
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
 	else
-		MONITOR=$m DIR=$dir STYLE=$style polybar -q main -c "$dir/$style/config.ini" &	
+		polybar -q main -c "$dir/$style/config.ini" &	
 	fi
 }
 
@@ -26,7 +26,9 @@ launch_bar() {
 	echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 	if type "xrandr"; then
 	  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	    MONITOR=$m DIR=$dir STYLE=$style launch_bar_base
+	    primary=$(xrandr --query | grep " primary" | cut -d" " -f1)
+	    [[ $m = $primary ]] && tray=right || tray=none
+	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray launch_bar_base
 	  done
 	else
 	  launch_bar_base
