@@ -25,9 +25,10 @@ launch_bar() {
 	# Run the bar on each screen
 	echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 	if type "xrandr"; then
+	  monitors_count=$(xrandr --listactivemonitors | head -n 1 | cut -d " " -f2)
 	  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
 	    primary=$(xrandr --query | grep " primary" | cut -d" " -f1)
-	    [[ $m = $primary ]] && tray=right || tray=none
+	    [[ $monitors_count = 1 || $m = $primary ]] && tray=right || tray=none
 	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray launch_bar_base
 	  done
 	else
