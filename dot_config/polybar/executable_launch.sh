@@ -11,7 +11,7 @@ launch_bar_base() {
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
 	else
-		polybar -q main -c "$dir/$style/config.ini" &	
+		polybar -q main -c "$config_file" &	
 	fi
 }
 
@@ -26,10 +26,14 @@ launch_bar() {
 	echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 	if type "xrandr"; then
 	  monitors_count=$(xrandr --listactivemonitors | head -n 1 | cut -d " " -f2)
+	  primary=$(xrandr --query | grep " primary" | cut -d" " -f1)
 	  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	    primary=$(xrandr --query | grep " primary" | cut -d" " -f1)
+	    m_width=$(xrandr --listactivemonitors | grep eDP-1 | cut -d " " -f4 | cut -d / -f1)
 	    [[ $monitors_count = 1 || $m = $primary ]] && tray=right || tray=none
-	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray launch_bar_base
+	    [[ $m_width < 1600 ]] && display_mode=compact- || display_mode=""
+	    config_file="~/.config/polybar/$style/$display_mode"config.ini
+	    echo $config_file
+	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray CONFIG_FILE=$config_file launch_bar_base
 	  done
 	else
 	  launch_bar_base
