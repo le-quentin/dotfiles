@@ -28,9 +28,10 @@ launch_bar() {
 	  monitors_count=$(xrandr --listactivemonitors | head -n 1 | cut -d " " -f2)
 	  primary=$(xrandr --query | grep " primary" | cut -d" " -f1)
 	  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	    m_width=$(xrandr --listactivemonitors | grep eDP-1 | cut -d " " -f4 | cut -d / -f1)
+	    m_width=$(xrandr --listactivemonitors | grep $m | cut -d " " -f4 | cut -d / -f1)
 	    [[ $monitors_count = 1 || $m = $primary ]] && tray=right || tray=none
 	    [[ $m_width < 1600 ]] && display_mode=compact- || display_mode=""
+	    echo "screen $m width $m_width display $display_mode"
 	    config_file="~/.config/polybar/$style/$display_mode"config.ini
 	    hwmon_file="$(hwmon_temp \"Package id 0\")"
 	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray CONFIG_FILE=$config_file CPU_TEMP_FILE=$hwmon_file launch_bar_base
