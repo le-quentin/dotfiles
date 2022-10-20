@@ -10,6 +10,9 @@ let &t_EI = "\e[2 q"
 :set relativenumber
 :nnoremap <leader>n :set relativenumber!<CR>
 
+" Set dark background explicitly for consistent look inside tmux
+set background=dark
+
 " Enable syntax highlighting
 syntax enable
 
