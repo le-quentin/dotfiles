@@ -35,10 +35,6 @@ Plug 'junegunn/fzf.vim'
 " vimpolyglot, to get better syntax highlighting for most languages
 Plug 'sheerun/vim-polyglot'
 
-" IntelliJ darcula theme
-" Plug 'doums/darcula'
-Plug 'isobit/vim-darcula-colors'
-
 " coc.nvim, an autocompletion engine working with many language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -62,11 +58,6 @@ Plug 'bkad/CamelCaseMotion'
 
 " END OF PLUGINS
 call plug#end()
-
-" IntellJ-like dark theme (https://github.com/doums/darcula)
-colorscheme darcula
-set termguicolors
-let g:lightline = { 'colorscheme': 'darculaOriginal' }
 
 " New FZF command to search for files in the current project
 function! s:find_git_root()
