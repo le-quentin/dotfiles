@@ -8,7 +8,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+default_border none
 default_floating_border normal
 
 # Hide borders
@@ -18,6 +18,8 @@ hide_edge_borders none
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
+# for_window [all] title_window_icon yes
+for_window [all] border none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -139,6 +141,7 @@ bindsym $mod+Ctrl+h workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
+# Using workspace numbers here so we can change names dynamically without breaking the bindings
 set $ws1 workspace number 1
 set $ws2 workspace number 2
 set $ws3 workspace number 3
