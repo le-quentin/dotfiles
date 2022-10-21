@@ -1,8 +1,5 @@
 import:
-  # Only the last entry will be relevant, all kept for easy swapping
-  - ~/.config/alacritty/theme-srcery.yml
-  - ~/.config/alacritty/theme-solarized-dark.yml
-  - ~/.config/alacritty/theme-oceanic-next.yml
+  - ~/.config/alacritty/themes/oceanic-next.yml
 
 env:
   TERM: alacritty
