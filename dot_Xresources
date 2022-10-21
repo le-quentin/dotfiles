@@ -15,8 +15,8 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background: #1b2b34
-*foreground: #d8dee9
+*background: #1c1e26
+*foreground: #e0e0e0
 *fading:                          8
 *fadeColor:                       black
 *cursorColor:                     #1ABB9B
@@ -24,36 +24,36 @@ XTerm*selectToClipboard: true
 *pointerColorForeground:          #16A085
 
 !! black dark/light
-*color0: #1b2b34
-*color8: #343d46
+*color0: #16161c
+*color8: #5b5858
 
 !! red dark/light
-*color1: #6699cc
-*color9: #6699cc
+*color1: #26bbd9
+*color9: #3fc4de
 
 !! green dark/light
-*color2: #99c794
-*color10: #99c794
+*color2: #29d398
+*color10: #3fdaa4
 
 !! yellow dark/light
-*color3: #5fb3b3
-*color11: #5fb3b3
+*color3: #59e1e3
+*color11: #6be4e6
 
 !! blue dark/light
-*color4: #ec5f67
-*color12: #ec5f67
+*color4: #e95678
+*color12: #ec6a88
 
 !! magenta dark/light
-*color5: #c594c5
-*color13: #c594c5
+*color5: #ee64ac
+*color13: #f075b5
 
 !! cyan dark/light
-*color6: #fac863
-*color14: #fac863
+*color6: #fab795
+*color14: #fbc3a7
 
 !! white dark/light
-*color7: #a7adba
-*color15: #d8dee9
+*color7: #d5d8da
+*color15: #d5d8da
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
