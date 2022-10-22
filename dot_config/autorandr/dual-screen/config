@@ -4,8 +4,9 @@ output HDMI-1
 off
 output HDMI-2
 crtc 0
+gamma 0.769:0.588:0.435
 mode 1920x1080
-pos 0x0
+pos 1366x0
 primary
 rate 60.00
 x-prop-aspect_ratio Automatic
@@ -16,8 +17,9 @@ x-prop-max_bpc 12
 x-prop-non_desktop 0
 output eDP-1
 crtc 1
+gamma 0.769:0.588:0.435
 mode 1366x768
-pos 1920x312
+pos 0x312
 rate 60.00
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default
