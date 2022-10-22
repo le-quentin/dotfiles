@@ -93,7 +93,7 @@ else
 	current_theme="$(basename "$theme_line")"
 	new_theme_line="$(echo "$theme_line" | sed "s|$current_theme|$THEME_NAME.yml|")"
 	echo "$theme_line=>$new_theme_line"
-	sed -iE "s|^$theme_line$|$new_theme_line|" "$config_file"
+	sed -i -E "s|^$theme_line$|$new_theme_line|" "$config_file"
 fi
 
 # Export to ~/.Xresources
