@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/themes/horizon-dark.yml
+  - ~/.config/alacritty/themes/tokyo-night.yml
 
 env:
   TERM: alacritty
