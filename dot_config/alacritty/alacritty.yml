@@ -1,5 +1,8 @@
+# Live config reload (changes require restart)
+live_config_reload: true
+
 import:
-  - ~/.config/alacritty/themes/tokyo-night.yml
+  - ~/.cache/wal/colors-alacritty.yml
 
 env:
   TERM: alacritty
