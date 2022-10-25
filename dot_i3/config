@@ -28,6 +28,9 @@ font xft:URWGothic-Book 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
+# Start the screenshot utility with $mod+ctrl+s
+bindsym $mod+Ctrl+s exec flameshot gui
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
