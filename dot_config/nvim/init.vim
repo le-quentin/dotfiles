@@ -30,7 +30,7 @@ set relativenumber
 nnoremap <leader>n :set relativenumber!<CR>
 
 " \ disables the previous search
-nnoremap \ :nohlsearch<CR>
+nnoremap <silent> \ :nohlsearch<CR>
 
 " ###################################### Splits 
 
@@ -45,16 +45,3 @@ nnoremap <C-Q> :q<CR>
 
 " Remove the banner
 let g:netrw_banner = 0
-" Tree view
-let g:netrw_liststyle = 3
-
-" Provide custom bindings for netrw buffers
-augroup netrw_mapping
-  autocmd!
-  autocmd filetype netrw call NetrwMapping()
-augroup END
-
-function! NetrwMapping()
-	" Use the ctrl+l split navigation binding, erasing the original refresh shortcut
-  nnoremap <buffer> <silent> <c-l> :wincmd l<cr>
-endfunction
