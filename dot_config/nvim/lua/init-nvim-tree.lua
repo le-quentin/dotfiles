@@ -8,6 +8,14 @@ vim.g.loaded_netrwPlugin = 1
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker = {
+        enabled = false,
+      },
+    },
+  },
   view = {
     adaptive_size = true,
     -- centralize_selection = true,
