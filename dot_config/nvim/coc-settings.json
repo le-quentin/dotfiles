@@ -5,7 +5,7 @@
 
     "java.referencesCodeLens.enabled": false,
     "java.implementationsCodeLens.enabled": true,
-    "java.trace.server": "messages", //Trace the communications with LSP server
+    "java.trace.server": "off", //Trace the communications with LSP server
 
     
     // I found this to be buggy (when removing a char, the char just doesn't work anymore)
