@@ -23,6 +23,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
+" lualine, for a nice looking statusline
+Plug 'nvim-lualine/lualine.nvim'
+
 " coc-nvim, basically turning vim into an IDE with language servers, linting etc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -69,6 +72,10 @@ nnoremap <C-T> <C-W>T
 nnoremap <C-S> :w<CR>
 " Ctrl+Q closes current split
 nnoremap <C-Q> :q<CR>
+
+" ###################################### lualine (nice looking statusline)
+
+lua require('init-lualine')
 
 " ###################################### nvim-tree (file browser)
 " Alt+1 opens file side pane and focuses it
