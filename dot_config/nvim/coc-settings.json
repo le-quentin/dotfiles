@@ -2,8 +2,10 @@
     "coc.source.around.priority": -1,
     "coc.source.buffer.priority": -2,
     "codeLens.enable": true,
+
     "java.referencesCodeLens.enabled": false,
     "java.implementationsCodeLens.enabled": true,
+    "java.trace.server": "messages", //Trace the communications with LSP server
 
     
     // I found this to be buggy (when removing a char, the char just doesn't work anymore)
