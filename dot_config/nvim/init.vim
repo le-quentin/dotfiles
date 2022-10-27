@@ -22,11 +22,16 @@ Plug 'nvim-tree/nvim-tree.lua'
 " coc-nvim, basically turning vim into an IDE with language servers, linting etc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+
 call plug#end()
 
 " #############################################################################
 " #													GENERAL SETTINGS																	#
 " #############################################################################
+
+" Alias command to source vimrc again
+command Resource :source ~/.config/nvim/init.vim
+command Rs :Resource
 
 " Floating windows not having this horrible magenta background by default
 :hi NormalFloat ctermbg=black
@@ -81,7 +86,8 @@ let g:coc_global_extensions=[
     \ "coc-java",
     \ "coc-json",
     \ "coc-docker",
-    \ "coc-pyright"
+    \ "coc-pyright",
+    \ "coc-pairs"
 \]
 
 " #############################################################################
@@ -99,6 +105,9 @@ set updatetime=300
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+
+" This can be used to disable coc-pairs for specific filetypes and symbols
+" autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
