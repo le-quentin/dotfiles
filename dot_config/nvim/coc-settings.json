@@ -1,6 +1,14 @@
 {
     "coc.source.around.priority": -1,
     "coc.source.buffer.priority": -2,
-    "codeLens.enable": true
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": false,
+    "java.implementationsCodeLens.enabled": true,
+
+    
+    "pairs.disableLanguages": [],
+    "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
+    "pairs.enableBackspace": true
+
 }
 
