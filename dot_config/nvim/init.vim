@@ -3,6 +3,10 @@
 " #############################################################################
 call plug#begin('~/.config/nvim/plugins')
 
+" Dependencies for other plugins
+Plug 'nvim-lua/plenary.nvim' " required by nvim-telescope
+"""""""""""""""""""""""""""""""""""""""""
+
 " Surroundings, to add verbs to delete/change/... surroundings
 Plug 'tpope/vim-surround'
 
@@ -22,6 +26,14 @@ Plug 'nvim-tree/nvim-tree.lua'
 " coc-nvim, basically turning vim into an IDE with language servers, linting etc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" nvim-telescope: fuzzy find in various list (files, tags, commands...)
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+" telescope-coc: integrate coc lists in telescope, so you can fuzzy search in symbols, commands etc
+Plug 'fannheyward/telescope-coc.nvim'
+
+" Built fzf to improve performance in telescope
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 call plug#end()
 
@@ -230,20 +242,67 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"  Mappings for CoCList => Replaced by telecope-coc bindings below
+"" Show all diagnostics.
+"nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
+"" Manage extensions.
+"nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
+"" Show commands.
+"nnoremap <silent><nowait> <leader>a  :<C-u>CocList commands<cr>
+"" Find symbol of current document.
+"nnoremap <silent><nowait> <leader>u  :<C-u>CocList outline<cr>
+"" Search workspace symbols.
+"nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+"" Do default action for next item.
+"nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
+"" Do default action for previous item.
+"nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
+"" Resume latest coc list.
+"nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <leader>u  :<C-u>CocList outline<cr>
+
+" #############################################################################
+" #											 Telescope (fuzzy find in list)                       #
+" #############################################################################
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>o <cmd>Telescope coc workspace_symbols<cr>
+nnoremap <leader>O <cmd>Telescope find_files<cr>
+nnoremap <leader>a <cmd>Telescope coc commands<cr>
+nnoremap <leader>d <cmd>Telescope coc diagnostics<cr>
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
+nnoremap <leader>t <cmd>Telescope buffers<cr>
+nnoremap <leader>h <cmd>Telescope help_tags<cr>
+
+" Integrate coc lists with telescope-coc plugin
+lua << EOF
+require("telescope").setup({
+  defaults = {
+    mappings = {
+      i = {
+        -- map actions.which_key to <C-h> (default: <C-/>)
+        -- actions.which_key shows the mappings for your picker,
+        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+        ["<C-h>"] = "which_key",
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+      },
+    },
+  },
+  extensions = {
+    coc = {
+        -- theme = 'ivy',
+        prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+    },
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    },
+  },
+})
+require('telescope').load_extension('coc')
+require('telescope').load_extension('fzf')
+EOF
