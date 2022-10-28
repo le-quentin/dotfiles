@@ -309,6 +309,7 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id i3wsr -c ~/.i3/i3wsr.toml --icons awesome
 # Apply the current omnitheme theme. TODO replace it with installed version when I got one.
 exec --no-startup-id ~/perso/omnitheme/omnitheme.py --restore
+exec --no-startup-id dropbox
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
