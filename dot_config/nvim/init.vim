@@ -75,6 +75,20 @@ nnoremap <C-Q> :q<CR>
 
 " ###################################### lualine (nice looking statusline)
 
+" We'll show the status only if there's something going on, other than that
+" We're not interested, diagnostics are already in lualine
+function! CocStatus() 
+    let l:cocstat = coc#status()
+    if stridx(l:cocstat, "%") >= 0 || stridx(l:cocstat, "starting") >= 0 
+        return l:cocstat
+    endif
+    return ""
+endfunction
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 lua require('init-lualine')
 
 " ###################################### nvim-tree (file browser)
@@ -247,7 +261,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 "  Mappings for CoCList => Replaced by telecope-coc bindings below
 "" Show all diagnostics.
@@ -312,4 +326,5 @@ require("telescope").setup({
 })
 require('telescope').load_extension('coc')
 require('telescope').load_extension('fzf')
+
 EOF
