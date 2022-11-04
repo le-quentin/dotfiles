@@ -14,5 +14,8 @@ tags
 #secret company aliases etc
 .secrets-zshrc
 
+# Java annotation processor (APT) for Eclipse projects (coc-java)
+.factorypath
+
 #local env config
 .env.local
