@@ -309,6 +309,7 @@ nnoremap <leader>h <cmd>Telescope help_tags<cr>
 lua << EOF
 require("telescope").setup({
   defaults = {
+    path_display = { "smart" },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)
