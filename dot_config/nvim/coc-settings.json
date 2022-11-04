@@ -8,8 +8,16 @@
     "java.implementationsCodeLens.enabled": true,
     "java.trace.server": "off", //Trace the communications with LSP server
     "java.progressReports.enabled": true, // EXPERIMENTAL, disable if issues
+    "java.jdt.ls.vmargs": "-javaagent:/home/quentin/.config/nvim/dependencies/lombok.jar -Xbootclasspath/a:/home/quentin/.config/nvim/dependencies/lombok.jar", // Use lombok, removing errors about "missing" methods
 
-    
+    // "clangd.arguments": [
+    //     //"--query-driver=/usr/bin/clang++",
+    //     "--query-driver=/usr/bin/arm-none-eabi-g++",
+    //     "--background-index"
+    // ],
+    // "clangd.compilationDatabaseCandidates": ["${workspaceFolder}/build"],
+
+
     // I found this to be buggy (when removing a char, the char just doesn't work anymore)
     // If I need customisation, I'll have to try and fix it or use another pairs pluging (i.e. nvim-autopairs or vim-pairs)
     "pairs.disableLanguages": [],
