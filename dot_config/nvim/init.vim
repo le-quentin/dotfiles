@@ -16,6 +16,9 @@ Plug 'tpope/vim-repeat'
 " vimpolyglot, to get syntax highlighting for 500+ file formats
 Plug 'sheerun/vim-polyglot'
 
+" use treesitter, a language parser generator, to get better syntax highlighting for basically all languagaes
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " vim-tmux-navigator, navigate vim and tmux panes with the same bindings (ctrl+direction)
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -112,6 +115,12 @@ endfunction
 lua require('init-nvim-tree')
 
 " #############################################################################
+" #													Tree-sitter                                       #
+" #############################################################################
+
+lua require('init-tree-sitter')
+
+" #############################################################################
 " #													LSP servers                                       #
 " #############################################################################
 
@@ -120,6 +129,7 @@ let g:coc_global_extensions=[
     \ "coc-json",
     \ "coc-docker",
     \ "coc-pyright",
+    \ "coc-clangd",
     \ "coc-pairs"
 \]
 
