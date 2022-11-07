@@ -41,6 +41,9 @@ Plug 'fannheyward/telescope-coc.nvim'
 " Built fzf to improve performance in telescope
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
+" Test wrapper, to run tests in various language with vim commands
+Plug 'vim-test/vim-test'
+
 call plug#end()
 
 " #############################################################################
@@ -113,6 +116,25 @@ endfunction
 
 " nvim-tree lua config
 lua require('init-nvim-tree')
+
+" #############################################################################
+" #													      Tests                                       #
+" #############################################################################
+
+" neovim test strategy => pop tests in a terminal
+let test#strategy = 'neovim'
+
+" Leader T => search for test class associated with current class (by
+" searching global tags starting with the class name)
+nnoremap <Leader>T :execute ':Tags ' . expand('%:t:r') . ' Test'<CR>
+
+" Shortcuts for the test wrapper
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
 
 " #############################################################################
 " #													Tree-sitter                                       #
