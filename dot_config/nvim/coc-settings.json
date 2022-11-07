@@ -8,6 +8,7 @@
     "java.implementationsCodeLens.enabled": true,
     "java.trace.server": "off", //Trace the communications with LSP server
     "java.progressReports.enabled": true, // EXPERIMENTAL, disable if issues
+    "java.home": "/home/quentin/.sdkman/candidates/java/17.0.5-tem",
     "java.jdt.ls.vmargs": "-javaagent:/home/quentin/.config/nvim/dependencies/lombok.jar -Xbootclasspath/a:/home/quentin/.config/nvim/dependencies/lombok.jar", // Use lombok, removing errors about "missing" methods
 
     // "clangd.arguments": [
