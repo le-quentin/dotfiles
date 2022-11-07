@@ -44,6 +44,9 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 " Test wrapper, to run tests in various language with vim commands
 Plug 'vim-test/vim-test'
 
+" Vimux, opening a tmux pane from vim to run commands, instead of the defautl :term
+Plug 'preservim/vimux'
+
 call plug#end()
 
 " #############################################################################
@@ -122,7 +125,7 @@ lua require('init-nvim-tree')
 " #############################################################################
 
 " neovim test strategy => pop tests in a terminal
-let test#strategy = 'neovim'
+let test#strategy = 'vimux'
 
 " Leader T => search for test class associated with current class (by
 " searching global tags starting with the class name)
