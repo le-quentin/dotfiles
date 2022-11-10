@@ -6,6 +6,6 @@ source ~/.vimrc
 set surround
 set commentary
 
-# Bind [l and ]l to IntelliJ actions to go to previous and next error
+# Bind [e and ]e to IntelliJ actions to go to previous and next error
 nnoremap ]e :action GotoNextError<CR>
 nnoremap [e :action GotoPreviousError<CR>
