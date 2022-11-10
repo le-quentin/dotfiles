@@ -9,3 +9,7 @@ set commentary
 # Bind [e and ]e to IntelliJ actions to go to previous and next error
 nnoremap ]e :action GotoNextError<CR>
 nnoremap [e :action GotoPreviousError<CR>
+
+# Fix ctrl+o/i jumps using the IDE aciton for jump navigation, preventing jumps across projects...
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
