@@ -11,5 +11,6 @@ nnoremap ]e :action GotoNextError<CR>
 nnoremap [e :action GotoPreviousError<CR>
 
 # Fix ctrl+o/i jumps using the IDE aciton for jump navigation, preventing jumps across projects...
-nnoremap <c-o> :action Back<cr>
-nnoremap <c-i> :action Forward<cr>
+# Using XBack/XForward actions from "Split" plugin, which preserves the splits histories
+nnoremap <c-o> :action XBack<cr>
+nnoremap <c-i> :action XForward<cr>
