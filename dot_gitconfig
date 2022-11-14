@@ -6,8 +6,8 @@
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [url "https://github.com/rust-lang/crates.io-index"]
-        insteadOf = https://github.com/rust-lang/crates.io-index
+	insteadOf = https://github.com/rust-lang/crates.io-index
 [includeIf "gitdir:disney/repos/"]
-	path = ~/perso/config/.disney-gitconfig
+	path = ~/.disney-gitconfig
 [alias]
 	stash-staged = "!f() { git stash push -m \"$1\" -- $(git diff --staged --name-only); }; f"
