@@ -237,7 +237,7 @@ for_window [urgent=latest] focus
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec --no-startup-id autorandr -c && nitrogen --restore; restart
 
 # Start polybar to display a worskpace bar
 set $polybar_theme forest
