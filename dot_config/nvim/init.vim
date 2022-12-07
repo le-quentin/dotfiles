@@ -16,6 +16,9 @@ Plug 'tpope/vim-repeat'
 " vimpolyglot, to get syntax highlighting for 500+ file formats
 Plug 'sheerun/vim-polyglot'
 
+" vim-fugitive, providing git integration
+Plug 'tpope/vim-fugitive'
+
 " use treesitter, a language parser generator, to get better syntax highlighting for basically all languagaes
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -138,6 +141,19 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
+" #############################################################################
+" #													Vim-Fugitive                                      #
+" #############################################################################
+
+function! s:ToggleBlame()
+    if &l:filetype ==# 'fugitiveblame'
+        close
+    else
+        Git blame
+    endif
+endfunction
+
+noremap <M-g> :call <SID>ToggleBlame()<CR>
 
 " #############################################################################
 " #													Tree-sitter                                       #
