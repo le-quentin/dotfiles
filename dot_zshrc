@@ -144,16 +144,9 @@ alias gds="git diff --stat"
 # alias wdiff="git diff --word-diff"
 git config --global alias.stash-staged '!f() { git stash push -m "$1" -- $(git diff --staged --name-only); }; f'
 
-# vim as default editor for all programs
-export VISUAL=vim
-# On some linux distributions, vim isn´t compiled with OS clipboard support. For those we use gvim in console mode instead
-if command -v gvim &> /dev/null; then
-	alias vim='gvim -v'
-  export VISUAL='gvim -v'
-fi
+# nvim as default editor for all programs
+export VISUAL=nvim
 export EDITOR="$VISUAL"
-
-# Use vim as the standard editor for all programs
 
 # SSH agent
 if [[ $(uname -s) = Darwin ]]; then
