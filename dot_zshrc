@@ -120,6 +120,9 @@ DEFAULT_USER=quentin
 bindkey -v
 
 ########## Aliases #############
+
+alias sudo='nocorrect sudo -E ' ######### Sudo works with autocompletion, and sources the user env instead of root env (using my personal nvim, aliases etc)
+
 alias vimproject="vim -u ~/.vimrc.ide ."
 
 # docker aliases
