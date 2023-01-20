@@ -199,9 +199,7 @@ if command -v go &> /dev/null; then
 fi
 
 # node
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+source /usr/share/nvm/init-nvm.sh # init nvm
 
 # java
 export JAVA_HOME=$(/usr/libexec/java_home -v17) 2> /dev/null
