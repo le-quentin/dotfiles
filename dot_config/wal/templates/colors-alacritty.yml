@@ -18,7 +18,7 @@ colors:
     blue:    '{color4}'
     magenta: '{color5}'
     cyan:    '{color6}'
-    white:   '{color6}'
+    white:   '{color7}'
 
   # Bright colors
   bright:
