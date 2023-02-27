@@ -25,6 +25,9 @@ for_window [all] border none
 # is used in the bar {} block below.
 font xft:URWGothic-Book 11
 
+# Stacking layout by default
+workspace_layout stacking
+
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
