@@ -141,6 +141,9 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
+" Typescript customisation => allow .ts files to be test files
+let g:test#javascript#ava#file_pattern = '\vtests?/.*\.(js|jsx|ts|tsx|coffee)$'
+
 " #############################################################################
 " #													Vim-Fugitive                                      #
 " #############################################################################
