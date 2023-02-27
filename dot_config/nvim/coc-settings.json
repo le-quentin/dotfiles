@@ -20,7 +20,6 @@
 
     "python.analysis.typeCheckingMode": "off", //Don't check types because then every implicit cast is an error
 
-
     // I found this to be buggy (when removing a char, the char just doesn't work anymore)
     // If I need customisation, I'll have to try and fix it or use another pairs pluging (i.e. nvim-autopairs or vim-pairs)
     "pairs.disableLanguages": [],

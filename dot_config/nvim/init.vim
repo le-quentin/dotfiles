@@ -48,6 +48,9 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug '907th/vim-auto-save'
 Plug 'zigius/vim-auto-save-git-hook'
 
+" gc/gb actions to line-comment/block-comment stuff
+Plug 'numToStr/Comment.nvim'
+
 " Test wrapper, to run tests in various language with vim commands
 Plug 'vim-test/vim-test'
 
@@ -176,6 +179,12 @@ noremap <M-g> :call <SID>ToggleBlame()<CR>
 " #############################################################################
 
 lua require('init-tree-sitter')
+
+" #############################################################################
+" #													   Comment                                        #
+" #############################################################################
+
+lua require('Comment').setup()
 
 " #############################################################################
 " #													LSP servers                                       #
@@ -348,6 +357,10 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 "" Resume latest coc list.
 "nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 nnoremap <silent><nowait> <leader>u  :<C-u>CocList outline<cr>
+
+" Automatically watch typescript project if tsserver is running (doesn't work
+" if not opening vim on a ts file, need a better solution)
+" autocmd User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
 
 " #############################################################################
 " #											 Telescope (fuzzy find in list)                       #
