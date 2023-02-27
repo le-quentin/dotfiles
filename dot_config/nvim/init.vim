@@ -44,6 +44,10 @@ Plug 'fannheyward/telescope-coc.nvim'
 " Built fzf to improve performance in telescope
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
+" Autosave with a hook: only autosave git committed files
+Plug '907th/vim-auto-save'
+Plug 'zigius/vim-auto-save-git-hook'
+
 " Test wrapper, to run tests in various language with vim commands
 Plug 'vim-test/vim-test'
 
@@ -122,6 +126,15 @@ endfunction
 
 " nvim-tree lua config
 lua require('init-nvim-tree')
+
+" #############################################################################
+" #												     git autosave                                   #
+" #############################################################################
+
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_events = ["CursorHold"]
+let updatetime=4000
 
 " #############################################################################
 " #													      Tests                                       #
