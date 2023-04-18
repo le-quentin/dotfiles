@@ -13,14 +13,11 @@ window:
 # Font configuration
 font:
   normal:
-    Default:
-      - SF-Pro
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    family: monospace
+    family: JetBrains Mono
+    style: Regular
 
   # Point size
-  size: 11.5
+  size: 12
 
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
