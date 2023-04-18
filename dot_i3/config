@@ -23,7 +23,7 @@ for_window [all] border none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+font xft:SF-Pro 11
 
 # Stacking layout by default
 workspace_layout stacking
