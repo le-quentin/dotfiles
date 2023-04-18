@@ -10,6 +10,18 @@ env:
 window:
   opacity: 0.93
 
+# Font configuration
+font:
+  normal:
+    Default:
+      - SF-Pro
+    #   - (Linux/BSD) monospace
+    #   - (Windows) Consolas
+    family: monospace
+
+  # Point size
+  size: 11.5
+
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Import additional configuration files
