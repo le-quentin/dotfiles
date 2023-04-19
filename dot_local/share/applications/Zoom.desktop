@@ -2,6 +2,7 @@
 Name=Zoom
 Comment=Zoom Video Conference
 Exec=prime-run /usr/bin/zoom %U
+# Exec=/usr/bin/zoom %U
 Icon=Zoom
 Terminal=false
 Type=Application
