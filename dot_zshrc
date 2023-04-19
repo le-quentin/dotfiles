@@ -167,15 +167,6 @@ setopt noincappendhistory
 setopt nosharehistory
 setopt appendhistory
 
-hwmon_temp() {
-	local label_search_str="$1"
-	local sensors=""
-	for i in /sys/class/hwmon/hwmon*/temp*_input; do
-		sensors+="$(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*}));$(readlink -f $i)\n" 
-	done 
-	echo $sensors | grep "$label_search_str" | cut -d ";" -f 2
-}	
-
 ide() {
 	local ide_path="."
 	local name="$(basename $PWD)"
@@ -220,6 +211,19 @@ upload-to-pico() {
 unset DOCKER_HOST
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+###########################################################
+#    OS settings                                          #
+###########################################################
+
+hwmon_temp() {
+	local label_search_str="$1"
+	local sensors=""
+	for i in /sys/class/hwmon/hwmon*/temp*_input; do
+		sensors+="$(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*}));$(readlink -f $i)\n" 
+	done 
+	echo $sensors | grep "$label_search_str" | cut -d ";" -f 2
+}	
 
 ###########################################################
 #    Mission specific                                     #
