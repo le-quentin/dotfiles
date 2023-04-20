@@ -183,14 +183,14 @@ ide() {
 # neo vim
 PATH=$PATH:~/nvim-osx64/bin
 
+# asdf (version manager for many, if not all, languages)
+. /opt/asdf-vm/asdf.sh
+
 # go
 if command -v go &> /dev/null; then
 	export GOPATH=$(go env GOPATH)
 	export PATH=$PATH:$GOPATH/bin
 fi
-
-# node
-source /usr/share/nvm/init-nvm.sh # init nvm
 
 # java
 export JAVA_HOME=$(/usr/libexec/java_home -v17) 2> /dev/null
