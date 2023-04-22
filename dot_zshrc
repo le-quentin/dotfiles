@@ -188,7 +188,7 @@ PATH=$PATH:~/nvim-osx64/bin
 
 # go
 if command -v go &> /dev/null; then
-	export GOPATH=$(go env GOPATH)
+	export GOPATH=$(go env GOPATH):~/perso/
 	export PATH=$PATH:$GOPATH/bin
 fi
 
