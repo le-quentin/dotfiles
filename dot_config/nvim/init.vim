@@ -64,6 +64,7 @@ call plug#end()
 " #############################################################################
 
 " Alias command to source vimrc again
+command Config :edit ~/.config/nvim/init.vim
 command Resource :source ~/.config/nvim/init.vim
 command Rs :Resource
 
@@ -91,6 +92,13 @@ nnoremap <C-T> <C-W>T
 nnoremap <C-S> :w<CR>
 " Ctrl+Q closes current split
 nnoremap <C-Q> :q<CR>
+
+" ###################################### Build shortcuts 
+" Call :make run with leader r 
+nnoremap <leader>r :make run<CR>
+" Call :make build with leader b
+nnoremap <leader>b :make build<CR>
+
 
 " ###################################### lualine (nice looking statusline)
 
