@@ -193,7 +193,7 @@ if command -v go &> /dev/null; then
 fi
 
 # java
-export JAVA_HOME=$(/usr/libexec/java_home -v17) 2> /dev/null
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # RaspbPi Pico dev
 export PICO_SDK_PATH=~/perso/electronics/pico/pico-sdk
@@ -230,7 +230,3 @@ hwmon_temp() {
 ###########################################################
 
 source ~/.disney-zshrc
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
