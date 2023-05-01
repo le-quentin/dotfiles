@@ -180,6 +180,13 @@ ide() {
 	tmux select-window -t "$name"
 }
 
+nvim_project() {
+  local arg="${1:-.}"
+  local project_dir=$(readlink -f "$arg")
+  echo "Opening project in $project_dir"
+  (cd "$project_dir"; nvim .)
+}
+
 # neo vim
 PATH=$PATH:~/nvim-osx64/bin
 
