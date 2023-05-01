@@ -57,6 +57,9 @@ Plug 'vim-test/vim-test'
 " Vimux, opening a tmux pane from vim to run commands, instead of the defautl :term
 Plug 'preservim/vimux'
 
+" nvim-dap, interactive debugger inside nvim
+Plug 'mfussenegger/nvim-dap'
+
 call plug#end()
 
 " #############################################################################
@@ -98,7 +101,6 @@ nnoremap <C-Q> :q<CR>
 nnoremap <leader>r :make run<CR>
 " Call :make build with leader b
 nnoremap <leader>b :make build<CR>
-
 
 " ###################################### lualine (nice looking statusline)
 
@@ -206,6 +208,19 @@ let g:coc_global_extensions=[
     \ "coc-clangd",
     \ "coc-pairs"
 \]
+
+" #############################################################################
+" #													Debugger                                          #
+" #############################################################################
+
+lua require('init-nvim-dap')
+" lua require('dap').set_log_level('TRACE')
+
+noremap <leader>db :lua require('dap').toggle_breakpoint()<CR>
+noremap <leader>dc :lua require('dap').continue()<CR>
+noremap <leader>dn :lua require('dap').step_over()<CR>
+noremap <leader>di :lua require('dap').step_into()<CR>
+noremap <leader>dp :lua require('dap').repl.open()<CR>
 
 " #############################################################################
 " #													 Coc Nvim                                         #
