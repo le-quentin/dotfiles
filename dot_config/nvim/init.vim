@@ -74,6 +74,9 @@ command Rs :Resource
 " Floating windows not having this horrible magenta background by default
 :hi NormalFloat ctermbg=black
 
+" Errors in Coc Diagnostics not having this horrible gray on red 
+:hi ErrorMsg ctermfg=black
+
 " Simple status line
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
