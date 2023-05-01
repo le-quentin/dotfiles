@@ -6,7 +6,7 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '{cursor}'
+    text: '{cursor_text}'
     cursor: '{cursor}' 
 
   # Normal colors
