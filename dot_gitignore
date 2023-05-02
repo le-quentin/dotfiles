@@ -7,6 +7,8 @@
 *.swo
 *~
 tags
+#Don't ignore 'tags' dirs! Was bitten by this with a package called 'tags' in a project
+!tags/
 
 #macos files
 .DS_STORE
