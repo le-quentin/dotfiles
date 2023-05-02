@@ -59,6 +59,8 @@ Plug 'preservim/vimux'
 
 " nvim-dap, interactive debugger inside nvim
 Plug 'mfussenegger/nvim-dap'
+" nvim-dap-go, uses Treesitter to be able to debug nearest go test
+Plug 'leoluz/nvim-dap-go'
 
 call plug#end()
 
@@ -216,14 +218,27 @@ let g:coc_global_extensions=[
 " #													Debugger                                          #
 " #############################################################################
 
-lua require('init-nvim-dap')
 " lua require('dap').set_log_level('TRACE')
+lua require('dap-go').setup({})
+
+lua vim.api.nvim_set_hl(0, 'DebuggerBreakpoint', { ctermfg= "Red" })
+lua vim.api.nvim_set_hl(0, 'DebuggerBreakpointLine', { special= "White", underline = true })
+lua vim.api.nvim_set_hl(0, 'DebuggerBreakpointRejectedLine', { special= "White", underdashed = true })
+lua vim.api.nvim_set_hl(0, 'DebuggerCurrentLine', { ctermfg = "Black", ctermbg = "Red" })
+lua vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DebuggerBreakpoint", linehl = "DebuggerBreakpointLine", numhl = "DebuggerBreakpointLine" })
+lua vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DebuggerBreakpoint", linehl = "DebuggerBreakpointRejectedLine", numhl = "DebuggerBreakpointRejectedLine" })
+lua vim.fn.sign_define("DapStopped", { text = "▶", texthl = "White", linehl = "DebuggerCurrentLine", numhl = "" })
 
 noremap <leader>db :lua require('dap').toggle_breakpoint()<CR>
 noremap <leader>dc :lua require('dap').continue()<CR>
 noremap <leader>dn :lua require('dap').step_over()<CR>
 noremap <leader>di :lua require('dap').step_into()<CR>
 noremap <leader>dp :lua require('dap').repl.open()<CR>
+
+augroup debug_test
+  autocmd!
+  autocmd FileType go noremap <leader>dt :lua require('dap-go').debug_test()<CR>
+augroup END
 
 " #############################################################################
 " #													 Coc Nvim                                         #
