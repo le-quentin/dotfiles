@@ -184,7 +184,10 @@ nvim_project() {
   local arg="${1:-.}"
   local project_dir=$(readlink -f "$arg")
   echo "Opening project in $project_dir"
+  local previousTmuxName=$(tmux display-message -p '#W')
+  tmux rename-window "$(basename $PWD)" 
   (cd "$project_dir"; nvim .)
+  tmux rename-window "$previousTmuxName" 
 }
 
 # neo vim
