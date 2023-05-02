@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e 
+
+(
+	cd ~/.local/share
+	if [ -d "vscode-js-debug" ]; then
+		cd vscode-js-debug
+		git pull
+	else
+		git clone https://github.com/microsoft/vscode-js-debug
+		cd vscode-js-debug
+	fi
+
+	npm install --legacy-peer-deps
+	npx gulp vsDebugServerBundle
+	mv dist out
+)
