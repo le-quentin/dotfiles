@@ -61,6 +61,8 @@ Plug 'preservim/vimux'
 Plug 'mfussenegger/nvim-dap'
 " nvim-dap-go, uses Treesitter to be able to debug nearest go test
 Plug 'leoluz/nvim-dap-go'
+" nvim-dap-vscode-js, nodejs debugger adapter
+Plug 'mxsdev/nvim-dap-vscode-js'
 
 call plug#end()
 
@@ -218,7 +220,9 @@ let g:coc_global_extensions=[
 " #													Debugger                                          #
 " #############################################################################
 
-" lua require('dap').set_log_level('TRACE')
+lua require('dap').set_log_level('TRACE')
+
+lua require('init-nvim-dap')
 lua require('dap-go').setup({})
 
 lua vim.api.nvim_set_hl(0, 'DebuggerBreakpoint', { ctermfg= "Red" })

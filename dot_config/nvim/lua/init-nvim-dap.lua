@@ -8,32 +8,34 @@ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DebuggerBreakpoint
 vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DebuggerBreakpoint", linehl = "DebuggerBreakpointRejectedLine", numhl = "DebuggerBreakpointRejectedLine" })
 vim.fn.sign_define("DapStopped", { text = "▶", texthl = "White", linehl = "DebuggerCurrentLine", numhl = "" })
 
--- dap.adapters.delve = {
---   type = 'server',
---   port = '${port}',
---   executable = {
---     command = 'dlv',
---     args = {'dap', '-l', '127.0.0.1:${port}'},
---   }
--- }
---
--- dap.configurations.go = {
---   {
---     type = "delve",
---     name = "Debug package",
---     request = "launch",
---     mode = "debug",
---     program = "./${relativeFileDirname}",
---     dlvToolPath = vim.fn.exepath('dlv')  -- Adjust to where delve is installed
---   },
---   {
---     type = "delve",
---     name = "Debug test package",
---     request = "launch",
---     mode = "test",
---     program = "./${relativeFileDirname}"
---   } 
--- }
+require("dap-vscode-js").setup({
+  -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+  debugger_path = "/home/quentin/.local/share/vscode-js-debug", -- Path to vscode-js-debug installation.
+  -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+  adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+  -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
+  -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
+  -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
+})
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+  dap.configurations[language] = {
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch file",
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+    },
+    {
+      type = "pwa-node",
+      request = "attach",
+      name = "Attach",
+      processId = require'dap.utils'.pick_process,
+      cwd = "${workspaceFolder}",
+    }
+  }
+end
 
 -- This invalidates the require cache; meaning live sourcing of init.vim will also resource this file
 return false
