@@ -8,7 +8,7 @@ env:
   TERM: alacritty
 
 window:
-  opacity: 0.93
+  opacity: 0.90
 
 # Font configuration
 font:
