@@ -1,7 +1,8 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "java", "javascript", "html", "css", "json", "toml", "yaml", "markdown",
-  "bash", "vim", "python", "go", "lua", "rust", "c", "cpp" },
+  -- ensure_installed = { "java", "javascript", "html", "css", "json", "toml", "yaml", "markdown",
+  -- "bash", "vim", "python", "go", "lua", "rust", "c", "cpp" },
+  ensure_installed = "all",
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -41,3 +42,6 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- This invalidates the require cache; meaning live sourcing of init.vim will also resource this file
+return false;
