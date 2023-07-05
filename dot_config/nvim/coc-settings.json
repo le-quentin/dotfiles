@@ -26,7 +26,8 @@
     // If I need customisation, I'll have to try and fix it or use another pairs pluging (i.e. nvim-autopairs or vim-pairs)
     "pairs.disableLanguages": [],
     "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
-    "pairs.enableBackspace": true
+    "pairs.enableBackspace": true,
+    "snippets.ultisnips.pythonPrompt": false
 
 }
 
