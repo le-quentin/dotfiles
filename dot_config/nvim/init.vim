@@ -14,7 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " vimpolyglot, to get syntax highlighting for 500+ file formats
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " vim-fugitive, providing git integration
 Plug 'tpope/vim-fugitive'
