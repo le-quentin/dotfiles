@@ -159,6 +159,8 @@ set $ws8 workspace number 8
 
 # Workspace screen dispatch
 # In case of dual screen setup, we want the workspaces to be dispatched on both screens
+
+# Base three screen setup
 workspace 1 output DP-1
 workspace 2 output DP-1
 workspace 3 output DP-1
@@ -167,6 +169,16 @@ workspace 5 output eDP-1
 workspace 6 output eDP-1
 workspace 7 output HDMI-2
 workspace 8 output HDMI-2
+
+# Bureau dual screen setup
+# workspace 1 output HDMI-2
+# workspace 2 output HDMI-2
+# workspace 3 output HDMI-2
+# workspace 4 output HDMI-2
+# workspace 5 output eDP-1
+# workspace 6 output eDP-1
+# workspace 7 output eDP-1
+# workspace 8 output eDP-1
 
 # switch to workspace
 bindsym $mod+1 $ws1
@@ -240,7 +252,7 @@ for_window [urgent=latest] focus
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec --no-startup-id autorandr -c && nitrogen --restore; restart
+bindsym $mod+Shift+r exec --no-startup-id autorandr -c && nitrogen --restore;  restart
 
 # Start polybar to display a worskpace bar
 set $polybar_theme forest
