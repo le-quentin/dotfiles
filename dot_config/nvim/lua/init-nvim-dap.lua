@@ -1,5 +1,7 @@
 local dap = require("dap")
+dap.set_log_level('TRACE')
 
+-- Graphics
 vim.api.nvim_set_hl(0, 'DebuggerBreakpoint', { ctermfg= "Red" })
 vim.api.nvim_set_hl(0, 'DebuggerBreakpointLine', { special= "White", underline = true })
 vim.api.nvim_set_hl(0, 'DebuggerBreakpointRejectedLine', { special= "White", underdashed = true })
@@ -8,6 +10,7 @@ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DebuggerBreakpoint
 vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DebuggerBreakpoint", linehl = "DebuggerBreakpointRejectedLine", numhl = "DebuggerBreakpointRejectedLine" })
 vim.fn.sign_define("DapStopped", { text = "▶", texthl = "White", linehl = "DebuggerCurrentLine", numhl = "" })
 
+-- NodeJs
 require("dap-vscode-js").setup({
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
   debugger_path = "/home/quentin/.local/share/vscode-js-debug", -- Path to vscode-js-debug installation.
@@ -31,11 +34,14 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       type = "pwa-node",
       request = "attach",
       name = "Attach",
-      processId = require'dap.utils'.pick_process,
+      -- processId = require'dap.utils'.pick_process,
       cwd = "${workspaceFolder}",
     }
   }
 end
+
+-- Go 
+require('dap-go').setup({})
 
 -- This invalidates the require cache; meaning live sourcing of init.vim will also resource this file
 return false

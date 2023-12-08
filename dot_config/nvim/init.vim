@@ -220,18 +220,7 @@ let g:coc_global_extensions=[
 " #													Debugger                                          #
 " #############################################################################
 
-lua require('dap').set_log_level('TRACE')
-
 lua require('init-nvim-dap')
-lua require('dap-go').setup({})
-
-lua vim.api.nvim_set_hl(0, 'DebuggerBreakpoint', { ctermfg= "Red" })
-lua vim.api.nvim_set_hl(0, 'DebuggerBreakpointLine', { special= "White", underline = true })
-lua vim.api.nvim_set_hl(0, 'DebuggerBreakpointRejectedLine', { special= "White", underdashed = true })
-lua vim.api.nvim_set_hl(0, 'DebuggerCurrentLine', { ctermfg = "Black", ctermbg = "Red" })
-lua vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DebuggerBreakpoint", linehl = "DebuggerBreakpointLine", numhl = "DebuggerBreakpointLine" })
-lua vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DebuggerBreakpoint", linehl = "DebuggerBreakpointRejectedLine", numhl = "DebuggerBreakpointRejectedLine" })
-lua vim.fn.sign_define("DapStopped", { text = "▶", texthl = "White", linehl = "DebuggerCurrentLine", numhl = "" })
 
 noremap <leader>db :lua require('dap').toggle_breakpoint()<CR>
 noremap <leader>dc :lua require('dap').continue()<CR>
