@@ -1,0 +1,15 @@
+import = ["/home/quentin/.cache/wal/colors-alacritty.toml"]
+live_config_reload = true
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 13
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[window]
+opacity = 0.9
