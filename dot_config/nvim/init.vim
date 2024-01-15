@@ -36,7 +36,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " nvim-telescope: fuzzy find in various list (files, tags, commands...)
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
 
 " telescope-coc: integrate coc lists in telescope, so you can fuzzy search in symbols, commands etc
 Plug 'fannheyward/telescope-coc.nvim'
