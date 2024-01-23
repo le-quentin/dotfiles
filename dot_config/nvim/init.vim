@@ -14,7 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " vimpolyglot, to get syntax highlighting for 500+ file formats
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " vim-fugitive, providing git integration
 Plug 'tpope/vim-fugitive'
@@ -409,6 +409,9 @@ nnoremap <leader>d <cmd>Telescope coc diagnostics<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 nnoremap <leader>t <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
+
+" At the bottom of your init.vim, keep all configs on one line
+lua require("nvim-treesitter.configs").setup({highlight={enable=true}})  
 
 " Integrate coc lists with telescope-coc plugin
 lua << EOF
