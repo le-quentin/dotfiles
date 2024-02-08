@@ -1,7 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore
 [user]
-	email = quentin.bonnet.work@gmail.com
+	email = quentin@bonnet.software
 	name = Quentin Bonnet
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
