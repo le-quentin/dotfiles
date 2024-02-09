@@ -319,7 +319,7 @@ exec --no-startup-id redshift-gtk
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 30 -locker blurlock
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id i3wsr -c ~/.i3/i3wsr.toml --icons awesome
 # Apply the current omnitheme theme. TODO replace it with installed version when I got one.
