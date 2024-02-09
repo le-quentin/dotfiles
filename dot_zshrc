@@ -195,6 +195,7 @@ PATH=$PATH:~/nvim-osx64/bin
 
 # Need to set this for some distros
 export ASDF_DIR=/opt/asdf-vm
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true # useful for older asdf
 # asdf (version manager for many, if not all, languages)
 . /opt/asdf-vm/asdf.sh
 
