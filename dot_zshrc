@@ -191,7 +191,7 @@ nvim_project() {
 }
 
 # neo vim
-PATH=$PATH:~/nvim-osx64/bin
+PATH=$PATH:~/app-images
 
 # Need to set this for some distros
 export ASDF_DIR=/opt/asdf-vm
