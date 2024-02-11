@@ -112,6 +112,10 @@ source $ZSH/oh-my-zsh.sh
 # Bundled software (typically cross platform stuff like IntelliJ) will be copied in /opt, and launchers will be symlinked to /opt/bin
 export PATH=$PATH:/opt/bin
 
+# Chezmoi will stoere executables in ~/.local/bin (putting the value last for security reasons, just in case)
+export PATH=$PATH:~/.local/bin
+
+
 
 DEFAULT_USER=quentin
 TERM=xterm-256color
