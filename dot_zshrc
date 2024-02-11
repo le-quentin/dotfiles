@@ -197,11 +197,11 @@ nvim_project() {
 # neo vim
 PATH=$PATH:~/app-images
 
-# Need to set this for some distros
-export ASDF_DIR=/opt/asdf-vm
-export ASDF_GOLANG_MOD_VERSION_ENABLED=true # useful for older asdf
 # asdf (version manager for many, if not all, languages)
-. /opt/asdf-vm/asdf.sh
+export ASDF_DIR=/opt/asdf-vm # needed for some distros
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true # useful for older asdf
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_installed # allow .nvmrc aliases like "18"
+. /opt/asdf-vm/asdf.sh # enable asdf
 
 # go
 if command -v go &> /dev/null; then
