@@ -12,6 +12,7 @@ set -e
 		cd vscode-js-debug
 	fi
 
+	asdf install
 	npm install --legacy-peer-deps
 	npx gulp vsDebugServerBundle
 	mv dist out
