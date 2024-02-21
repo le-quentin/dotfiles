@@ -9,5 +9,7 @@
 	insteadOf = https://github.com/rust-lang/crates.io-index
 [includeIf "gitdir:disney/repos/"]
 	path = ~/.disney-gitconfig
+[includeIf "gitdir:cnam/repos/"]
+	path = ~/.cnam-gitconfig
 [alias]
 	stash-staged = "!f() { git stash push -m \"$1\" -- $(git diff --staged --name-only); }; f"
