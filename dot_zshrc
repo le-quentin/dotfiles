@@ -247,3 +247,4 @@ hwmon_temp() {
 ###########################################################
 
 source ~/.disney-zshrc
+source ~/.cnam-zshrc
