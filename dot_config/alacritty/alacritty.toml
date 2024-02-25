@@ -1,4 +1,4 @@
-import = ["/home/quentin/.cache/wal/colors-alacritty.toml"]
+import = ["~/.cache/wal/colors-alacritty.toml"]
 live_config_reload = true
 
 [env]
