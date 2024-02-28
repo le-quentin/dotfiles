@@ -161,14 +161,14 @@ set $ws8 workspace number 8
 # In case of dual screen setup, we want the workspaces to be dispatched on both screens
 
 # Base three screen setup
-workspace 1 output DP-1
-workspace 2 output DP-1
-workspace 3 output DP-1
-workspace 4 output DP-1
+workspace 1 output DP-1-4
+workspace 2 output DP-1-4
+workspace 3 output DP-1-4
+workspace 4 output DP-1-4
 workspace 5 output eDP-1
 workspace 6 output eDP-1
-workspace 7 output HDMI-2
-workspace 8 output HDMI-2
+workspace 7 output HDMI-1-0
+workspace 8 output HDMI-1-0
 
 # Bureau dual screen setup
 # workspace 1 output HDMI-2
