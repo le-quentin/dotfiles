@@ -1,0 +1,7 @@
+# This user is for CNAM. Source the specific zshrc
+source ~/.cnam-zshrc
+
+# Machine setup
+export LINUX_SESSION_NUMBER = 7
+export OTHER_LINUX_SESSION_NUMBER = 6
+
