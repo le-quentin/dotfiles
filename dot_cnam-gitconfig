@@ -1,3 +1,6 @@
 [user]
         email = qbonnet.ext@inops.fr
         name = Quentin Bonnet
+[credential]
+        username = bonnet-61895
+        helper = cache --timeout 43200

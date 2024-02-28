@@ -1,11 +1,11 @@
 {
 	"aururl": "https://aur.archlinux.org",
 	"aurrpcurl": "",
-	"buildDir": "/home/quentin/.cache/yay",
+	"buildDir": "/home/quentin-cnam/.cache/yay",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",
-	"makepkgconf": "/home/quentin/.config/yay/makepkg.conf",
+	"makepkgconf": "/home/quentin-cnam/.config/yay/makepkg.conf",
 	"pacmanbin": "pacman",
 	"pacmanconf": "/etc/pacman.conf",
 	"redownload": "no",
