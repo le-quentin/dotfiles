@@ -34,8 +34,7 @@ launch_bar() {
 	    echo "screen $m width $m_width display $display_mode"
 	    config_file="~/.config/polybar/$style/$display_mode"config.ini
 			# For some reason, doesn't work on new pc, hwmon_temp not found in script
-	    # hwmon_file="$(hwmon_temp \"Package id 0\")" 
-	    hwmon_file="/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+	    # hwmon_file="$(hwmon_temp "Package id 0")" 
 	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray CONFIG_FILE=$config_file CPU_TEMP_FILE=$hwmon_file launch_bar_base
 	  done
 	else
