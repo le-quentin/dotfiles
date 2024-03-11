@@ -21,3 +21,6 @@ tags
 
 #local env config
 .env.local
+
+# Python venv dirs
+venv/
