@@ -1,1 +1,2 @@
 alias vpn-cnam='~/cnam/vpn/linux-software-ressources/vpncnam/vpncnam connect'
+export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStore=/home/quentin/cnam/java/cacerts -Djavax.net.ssl.keyStore=/home/quentin/cnam/java/cacerts -Djavax.net.ssl.trustStorePassword=changeit"
