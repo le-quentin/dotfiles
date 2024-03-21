@@ -11,5 +11,7 @@
 	path = ~/.disney-gitconfig
 [includeIf "gitdir:cnam/repos/"]
 	path = ~/.cnam-gitconfig
+[includeIf "hasconfig:remote.*.url:https://git.digital.cnamts.fr/**"]
+	path = ~/.cnam-gitconfig
 [alias]
 	stash-staged = "!f() { git stash push -m \"$1\" -- $(git diff --staged --name-only); }; f"
