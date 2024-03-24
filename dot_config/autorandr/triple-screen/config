@@ -13,20 +13,19 @@ off
 output DP-1-5
 off
 output DP-1-4
-gamma 0.769:0.769:0.714
+gamma 0.9:0.9:0.9
 mode 2560x1440
 pos 1920x0
 primary
 rate 59.95
 x-prop-non_desktop 0
 output HDMI-1-0
-gamma 0.769:0.769:0.714
 mode 1920x1080
 pos 4480x115
 rate 60.00
 x-prop-non_desktop 0
 output eDP-1
-gamma 0.769:0.769:0.714
+gamma 0.9:0.9:0.9
 mode 1920x1080
 pos 0x490
 rate 60.00
