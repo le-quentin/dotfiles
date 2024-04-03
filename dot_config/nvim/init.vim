@@ -213,6 +213,7 @@ let g:coc_global_extensions=[
     \ "coc-json",
     \ "coc-docker",
     \ "coc-pyright",
+    \ "coc-go",
     \ "coc-clangd",
     \ "coc-pairs"
 \]
