@@ -2,7 +2,7 @@ import = ["~/.cache/wal/colors-alacritty.toml"]
 live_config_reload = true
 
 [env]
-TERM = "alacritty"
+TERM = "xterm-256color"
 
 [font]
 size = 13

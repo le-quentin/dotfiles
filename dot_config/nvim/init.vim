@@ -14,7 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " vimpolyglot, to get syntax highlighting for 500+ file formats
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " vim-fugitive, providing git integration
 Plug 'tpope/vim-fugitive'
@@ -65,11 +65,16 @@ Plug 'leoluz/nvim-dap-go'
 " nvim-dap-vscode-js, nodejs debugger adapter
 Plug 'mxsdev/nvim-dap-vscode-js'
 
+" nightfly color theme
+Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+
 call plug#end()
 
 " #############################################################################
 " #													GENERAL SETTINGS																	#
 " #############################################################################
+
+colorscheme nightfly
 
 " Alias command to source vimrc again
 command Config :edit ~/.config/nvim/init.vim
@@ -413,9 +418,6 @@ nnoremap <leader>d <cmd>Telescope coc diagnostics<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 nnoremap <leader>t <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
-
-" At the bottom of your init.vim, keep all configs on one line
-lua require("nvim-treesitter.configs").setup({highlight={enable=true}})  
 
 " Integrate coc lists with telescope-coc plugin
 lua << EOF

@@ -118,7 +118,7 @@ export PATH=$PATH:~/.local/bin
 
 
 DEFAULT_USER=quentin
-TERM=xterm-256color
+# TERM=xterm-255color
 
 # Vim mode in zsh
 bindkey -v
@@ -128,6 +128,8 @@ bindkey -v
 alias sudo='nocorrect sudo -E ' ######### Sudo works with autocompletion, and sources the user env instead of root env (using my personal nvim, aliases etc)
 
 alias vimproject="vim -u ~/.vimrc.ide ."
+
+alias check-tmux-colors='curl -s https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh >24-bit-color.sh; bash 24-bit-color.sh'
 
 # docker aliases
 alias docker-wipe="for container in \`docker ps -a | tail -n +2 | sed -E 's/([a-z0-9]*) .*/\1/g' | tr '\n' ' '\`; do docker rm $container; done"
