@@ -3,6 +3,15 @@
 dir="$HOME/.config/polybar"
 themes=(`ls --hide="launch.sh" $dir`)
 
+hwmon_temp() {
+	local label_search_str="$1"
+	local sensors=""
+	for i in /sys/class/hwmon/hwmon*/temp*_input; do 
+		sensors+="$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"
+	done
+	echo $sensors | grep "$label_search_str" | awk '{print $NF}'
+}	
+
 launch_bar_base() {
 	# Launch the bar
 	if [[ "$style" == "hack" || "$style" == "cuts" ]]; then
@@ -33,8 +42,8 @@ launch_bar() {
 	    [[ $m_width < 1600 ]] && display_mode=compact- || display_mode=""
 	    echo "screen $m width $m_width display $display_mode"
 	    config_file="~/.config/polybar/$style/$display_mode"config.ini
-			# For some reason, doesn't work on new pc, hwmon_temp not found in script
-	    # hwmon_file="$(hwmon_temp "Package id 0")" 
+	    hwmon_file="$(hwmon_temp "Package id 0")" 
+	    echo "################# $hwmon_file ##################"
 	    MONITOR=$m DIR=$dir STYLE=$style TRAY_POSITION=$tray CONFIG_FILE=$config_file CPU_TEMP_FILE=$hwmon_file launch_bar_base
 	  done
 	else
