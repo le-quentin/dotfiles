@@ -41,4 +41,12 @@ if [[ "$power" -ge "$max_power" ]]; then
 	power_color=$WARN_COLOR
 fi
 
+if [[ "$usage" -lt 10 ]]; then
+	usage="0$usage"
+fi
+
+if [[ "$power" -lt 10 ]]; then
+	power="0$power"
+fi
+
 echo %{F$icon_color}   %{F-} %{F$usage_color} $usage\% %{F-} - %{F$temp_color} $temp$temp_limit_str°C %{F-} - %{F$power_color}$power/$power_limit\W %{F-}
