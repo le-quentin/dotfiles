@@ -76,6 +76,10 @@ call plug#end()
 
 colorscheme nightfly
 
+" Set python to system bin explicitly to avoid asdf meddling with nvim
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
+
 " Alias command to source vimrc again
 command Config :edit ~/.config/nvim/init.vim
 command Resource :source ~/.config/nvim/init.vim
