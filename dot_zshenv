@@ -1,0 +1,16 @@
+# This file is sourced on all invocations of the shell, and not only in interactive shells like .zshrc
+# So, everything defined here will be available to scripts
+#
+# Vagrant (currently vagrant-libvirt is broken on arch because of some ruby gems versions mismatch)
+# So using docker
+vagrant(){
+  docker run -it --rm \
+    -e LIBVIRT_DEFAULT_URI \
+    -v /var/run/libvirt/:/var/run/libvirt/ \
+    -v ~/.vagrant.d:/.vagrant.d \
+    -v $(realpath "${PWD}"):${PWD} \
+    -w "${PWD}" \
+    --network host \
+    vagrantlibvirt/vagrant-libvirt:sha-a94ce0d \
+      vagrant $@
+}
