@@ -22,6 +22,9 @@ Plug 'tpope/vim-fugitive'
 " use treesitter, a language parser generator, to get better syntax highlighting for basically all languagaes
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Terraform plugins, somehow syntax highlighting wasn't good with treesitter alone
+Plug 'hashivim/vim-terraform'
+
 " vim-tmux-navigator, navigate vim and tmux panes with the same bindings (ctrl+direction)
 Plug 'christoomey/vim-tmux-navigator'
 
