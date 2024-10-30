@@ -3,8 +3,8 @@
         name = Quentin Bonnet
 [core]
 	excludesfile = ~/.gitignore
-; [url "ssh://git@github.com/"]
-; 	insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [url "https://github.com/rust-lang/crates.io-index"]
 	insteadOf = https://github.com/rust-lang/crates.io-index
 [includeIf "hasconfig:remote.*.url:git@github.com:le-quentin/**"]
