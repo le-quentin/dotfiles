@@ -71,13 +71,17 @@ Plug 'mxsdev/nvim-dap-vscode-js'
 " nightfly color theme
 Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
 
+" Catppuccin zenful themes
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 call plug#end()
 
 " #############################################################################
 " #													GENERAL SETTINGS																	#
 " #############################################################################
 
-colorscheme nightfly
+" colorscheme nightfly
+colorscheme catppuccin-macchiato " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 
 " Set python to system bin explicitly to avoid asdf meddling with nvim
 let g:python3_host_prog = '/usr/bin/python3'
