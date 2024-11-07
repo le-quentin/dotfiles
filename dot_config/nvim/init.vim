@@ -32,6 +32,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
+" bufferline, for a nice looking tab line
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
 " lualine, for a nice looking statusline
 Plug 'nvim-lualine/lualine.nvim'
 
@@ -88,8 +91,20 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
 
 " Alias command to source vimrc again
+lua << EOF
+function _G.ReloadConfig()
+  for name,_ in pairs(package.loaded) do
+    if name:match('^user') and not name:match('nvim-tree') then
+      package.loaded[name] = nil
+    end
+  end
+
+  vim.cmd("source "..vim.env.MYVIMRC)
+  vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
+end
+EOF
 command Config :edit ~/.config/nvim/init.vim
-command Resource :source ~/.config/nvim/init.vim
+command Resource :lua ReloadConfig()
 command Rs :Resource
 
 " Floating windows not having this horrible magenta background by default
@@ -163,6 +178,10 @@ endfunction
 
 " nvim-tree lua config
 lua require('init-nvim-tree')
+
+" ###################################### bufferline (used as tabpage line)
+lua require('init-bufferline')
+nnoremap <leader>t <cmd>BufferLinePick<CR>
 
 " #############################################################################
 " #												     git autosave                                   #
@@ -427,7 +446,7 @@ nnoremap <leader>O <cmd>Telescope find_files<cr>
 nnoremap <leader>a <cmd>Telescope coc commands<cr>
 nnoremap <leader>d <cmd>Telescope coc diagnostics<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
-nnoremap <leader>t <cmd>Telescope buffers<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
 
 " Integrate coc lists with telescope-coc plugin
