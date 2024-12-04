@@ -287,6 +287,11 @@ let g:ansible_template_syntaxes = {
       \ '*.sh.j2': 'sh',
 \}
 
+" Necessary for the LSP
+let g:coc_filetype_map = {
+  \ 'yaml.ansible': 'ansible',
+  \ }
+
 " #############################################################################
 " #													   Comment                                        #
 " #############################################################################
