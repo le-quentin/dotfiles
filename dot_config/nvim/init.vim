@@ -80,14 +80,19 @@ Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
 " Catppuccin zenful themes
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
+" Nightfox themes
+Plug 'EdenEast/nightfox.nvim'
+
 call plug#end()
 
 " #############################################################################
 " #													GENERAL SETTINGS																	#
 " #############################################################################
 
-colorscheme nightfly
+set termguicolors
+" colorscheme nightfly
 " colorscheme catppuccin-mocha " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+colorscheme nightfox
 
 " Set python to system bin explicitly to avoid asdf meddling with nvim
 let g:python3_host_prog = '/usr/bin/python3'
