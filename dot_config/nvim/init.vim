@@ -13,17 +13,17 @@ Plug 'tpope/vim-surround'
 " Advanced repeat, to be able to repeat plugins action with .
 Plug 'tpope/vim-repeat'
 
-" vimpolyglot, to get syntax highlighting for 500+ file formats
-" Plug 'sheerun/vim-polyglot'
-
 " vim-fugitive, providing git integration
 Plug 'tpope/vim-fugitive'
 
 " use treesitter, a language parser generator, to get better syntax highlighting for basically all languagaes
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" vimpolyglot, to get syntax highlighting for 500+ file formats
+" Plug 'sheerun/vim-polyglot'
+
 " Terraform plugins, somehow syntax highlighting wasn't good with treesitter alone
-Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-terraform'
 
 " vim-tmux-navigator, navigate vim and tmux panes with the same bindings (ctrl+direction)
 Plug 'christoomey/vim-tmux-navigator'
@@ -40,6 +40,9 @@ Plug 'nvim-lualine/lualine.nvim'
 
 " coc-nvim, basically turning vim into an IDE with language servers, linting etc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" ansible-vim, for better syntax highlighting in ansible files
+Plug 'pearofducks/ansible-vim'
 
 " nvim-telescope: fuzzy find in various list (files, tags, commands...)
 " Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -83,8 +86,8 @@ call plug#end()
 " #													GENERAL SETTINGS																	#
 " #############################################################################
 
-" colorscheme nightfly
-colorscheme catppuccin-macchiato " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+colorscheme nightfly
+" colorscheme catppuccin-mocha " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 
 " Set python to system bin explicitly to avoid asdf meddling with nvim
 let g:python3_host_prog = '/usr/bin/python3'
@@ -234,6 +237,19 @@ noremap <M-g> :call <SID>ToggleBlame()<CR>
 lua require('init-tree-sitter')
 
 " #############################################################################
+" #													ansible-vim                                       #
+" #############################################################################
+
+" Configure filetypes matchings for ansible
+autocmd BufRead,BufNewFile */ansible/**.y?ml,*/playbooks/**.y?ml,*/inventories/**.y?ml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */inventories/**hosts set filetype=ansible_hosts
+let g:ansible_template_syntaxes = { 
+      \ '*.ya?ml.j2': 'yaml',
+      \ '*.conf.j2': 'conf',
+      \ '*.sh.j2': 'sh',
+\}
+
+" #############################################################################
 " #													   Comment                                        #
 " #############################################################################
 
@@ -246,6 +262,7 @@ lua require('Comment').setup()
 let g:coc_global_extensions=[ 
     \ "coc-java",
     \ "coc-json",
+    \ "@yaegassy/coc-ansible",
     \ "coc-docker",
     \ "coc-pyright",
     \ "coc-go",
