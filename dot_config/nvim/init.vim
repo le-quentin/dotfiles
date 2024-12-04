@@ -16,6 +16,13 @@ Plug 'tpope/vim-repeat'
 " vim-fugitive, providing git integration
 Plug 'tpope/vim-fugitive'
 
+" vim-sleuth, smart indenting depending on state of currentfile
+Plug 'tpope/vim-sleuth'
+" indent-blankline.nvim, for indentation guide lines
+Plug 'lukas-reineke/indent-blankline.nvim'
+" mini.indentscope, because indent-blankline cannot show current indent block (shows local vars scope instead)
+Plug 'echasnovski/mini.indentscope'
+
 " use treesitter, a language parser generator, to get better syntax highlighting for basically all languagaes
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -45,7 +52,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 
 " nvim-telescope: fuzzy find in various list (files, tags, commands...)
-" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+" Plug 'nvim-telesc ope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
 
 " telescope-coc: integrate coc lists in telescope, so you can fuzzy search in symbols, commands etc
@@ -234,6 +241,32 @@ function! s:ToggleBlame()
 endfunction
 
 noremap <M-g> :call <SID>ToggleBlame()<CR>
+
+" #############################################################################
+" #													indent-blankline                                  #
+" #############################################################################
+
+lua << EOF
+
+vim.opt["tabstop"] = 4
+vim.opt["shiftwidth"] = 4
+
+require('ibl').setup({
+	indent = {
+		char = '╎',
+	},
+	scope = { 
+		exclude = { language = {"yaml"} },
+	},
+})
+
+require('mini.indentscope').setup({
+	draw = { delay = 25 },
+	options = { indent_at_cursor = false },
+	symbol = '╎',
+})
+
+EOF
 
 " #############################################################################
 " #													Tree-sitter                                       #
