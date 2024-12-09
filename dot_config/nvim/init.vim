@@ -505,7 +505,9 @@ nnoremap <leader>o <cmd>Telescope coc workspace_symbols<cr>
 nnoremap <leader>O <cmd>Telescope find_files<cr>
 nnoremap <leader>a <cmd>Telescope coc commands<cr>
 nnoremap <leader>d <cmd>Telescope coc diagnostics<cr>
+nnoremap <leader>w <cmd>Telescope grep_string<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
+vnoremap <leader>f "zy:Telescope live_grep default_text=<C-r>z<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
 nnoremap <leader>c <cmd>Telescope colorscheme<cr>
