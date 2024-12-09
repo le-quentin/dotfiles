@@ -508,6 +508,7 @@ nnoremap <leader>d <cmd>Telescope coc diagnostics<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
+nnoremap <leader>c <cmd>Telescope colorscheme<cr>
 
 " Integrate coc lists with telescope-coc plugin
 lua << EOF
@@ -524,6 +525,11 @@ require("telescope").setup({
         ["<C-k>"] = "move_selection_previous",
       },
     },
+  },
+  pickers = {
+	colorscheme = {
+	  enable_preview = true
+	},
   },
   extensions = {
     coc = {
