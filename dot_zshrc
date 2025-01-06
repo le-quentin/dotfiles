@@ -255,5 +255,5 @@ hwmon_temp() {
 #    Mission specific                                     #
 ###########################################################
 
-source ~/.disney-zshrc
-source ~/.cnam-zshrc
+# source ~/.disney-zshrc
+# source ~/.cnam-zshrc
