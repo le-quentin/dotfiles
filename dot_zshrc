@@ -212,6 +212,8 @@ export ASDF_GOLANG_MOD_VERSION_ENABLED=true # useful for older asdf
 export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_installed # allow .nvmrc aliases like "18"
 . /opt/asdf-vm/asdf.sh # enable asdf
 
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
 # go
 if command -v go &> /dev/null; then
 	export GOPATH=$(go env GOPATH):~/perso/
