@@ -30,7 +30,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'sheerun/vim-polyglot'
 
 " Terraform plugins, somehow syntax highlighting wasn't good with treesitter alone
-" Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-terraform'
 
 " vim-tmux-navigator, navigate vim and tmux panes with the same bindings (ctrl+direction)
 Plug 'christoomey/vim-tmux-navigator'
