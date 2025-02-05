@@ -496,6 +496,9 @@ nnoremap <silent><nowait> <leader>u  :<C-u>CocList outline<cr>
 " if not opening vim on a ts file, need a better solution)
 " autocmd User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
 
+" Set root folder for python projects, enabling local imports
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+
 " #############################################################################
 " #											 Telescope (fuzzy find in list)                       #
 " #############################################################################
