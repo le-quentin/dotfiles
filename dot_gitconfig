@@ -11,6 +11,8 @@
 	path = ~/.perso-gitconfig
 [includeIf "hasconfig:remote.*.url:git@*gitlab.com:le-quentin/**"]
 	path = ~/.gitlab-perso-gitconfig
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/fairlyne/**"]
+	path = ~/.fairlyne-https-gitconfig
 [includeIf "gitdir:disney/repos/"]
 	path = ~/.disney-gitconfig
 [includeIf "gitdir:cnam/repos/"]
