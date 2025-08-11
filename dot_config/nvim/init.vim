@@ -101,6 +101,12 @@ set termguicolors
 " colorscheme catppuccin-mocha " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 colorscheme nightfox
 
+" Enable spell check for Markdown files, in English and French
+augroup markdown_spell
+  autocmd!
+  autocmd FileType markdown setlocal spell spelllang=en,fr
+augroup END
+
 " Set python to system bin explicitly to avoid asdf meddling with nvim
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
