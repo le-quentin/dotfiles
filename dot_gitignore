@@ -24,3 +24,6 @@ tags
 
 # Python venv dirs
 venv/
+
+# Claude code
+.claude/

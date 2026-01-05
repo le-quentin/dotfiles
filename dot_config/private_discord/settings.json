@@ -9,5 +9,8 @@
   },
   "SKIP_HOST_UPDATE": true,
   "chromiumSwitches": {},
-  "BACKGROUND_COLOR": "#2c2d32"
+  "BACKGROUND_COLOR": "#2c2d32",
+  "offloadAdmControls": true,
+  "enableHardwareAcceleration": true,
+  "asyncVideoInputDeviceInit": false
 }
