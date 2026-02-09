@@ -148,6 +148,11 @@ nnoremap <leader>n :set relativenumber!<CR>
 " \ disables the previous search
 nnoremap <silent> \ :nohlsearch<CR>
 
+" ###################################### quickfix  list
+nnoremap <leader>qo :copen<CR>
+nnoremap <leader>qn :cnext<CR>
+nnoremap <leader>qp :cprevious<CR>
+
 " ###################################### Splits 
 " Ctrl+T open current split in new tab
 nnoremap <C-T> <C-W>T
