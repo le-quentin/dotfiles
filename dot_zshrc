@@ -244,6 +244,20 @@ unset DOCKER_HOST
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Claude Code
+alias claude-fairlyne="CLAUDE_CONFIG_DIR=~/.claude-fairlyne command claude"
+alias claude-perso="CLAUDE_CONFIG_DIR=~/.claude command claude"
+function claude() {
+    local current_dir="$PWD"
+    local fairlyne_dir="${HOME}/fairlyne"
+
+    if [[ "$current_dir" == "$fairlyne_dir" ]] || [[ "$current_dir" == "$fairlyne_dir"/* ]]; then
+      claude-fairlyne "$@"
+    else
+      claude-perso "$@"
+    fi
+}
+
 ###########################################################
 #    OS settings                                          #
 ###########################################################
