@@ -202,6 +202,7 @@ nvim_project() {
   (cd "$project_dir"; nvim .)
   tmux rename-window "$previousTmuxName" 
 }
+alias np=nvim_project
 
 # neo vim
 PATH=$PATH:~/app-images
@@ -257,6 +258,9 @@ function claude() {
       claude-perso "$@"
     fi
 }
+
+alias dev-to-tst="gc dev && git pull && gc tst && git pull && gr dev && git push"
+alias tst-to-int="gc tst && git pull && gc int && git pull && gr tst && git push"
 
 ###########################################################
 #    OS settings                                          #
