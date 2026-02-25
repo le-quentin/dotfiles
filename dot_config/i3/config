@@ -50,7 +50,7 @@ bindsym $mod+d exec --no-startup-id "rofi -modes \\"drun,run\\" -show drun\
 bindsym $mod+z exec --no-startup-id morc_menu
 
 # Set QWERTY and Bépo layouts, with Alt+Shift to toggle
-exec_always --no-startup-id setxkbmap -layout "fr,fr" -variant "us,bepo" -option "grp:alt_shift_toggle"
+exec_always --no-startup-id setxkbmap -layout "fr,fr" -variant "us,ergol" -option "grp:alt_shift_toggle"
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
