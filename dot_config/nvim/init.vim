@@ -163,9 +163,9 @@ nnoremap <C-Q> :q<CR>
 
 " ###################################### Build shortcuts 
 " Call :make run with leader r 
-nnoremap <leader>r :make run<CR>
+nnoremap <leader>r :VimuxInterruptRunner<CR> :VimuxRunCommand("make run")<CR>
 " Call :make build with leader b
-nnoremap <leader>b :make build<CR>
+nnoremap <leader>b :VimuxInterruptRunner<CR> :VimuxRunCommand("make build")<CR>
 
 " ###################################### lualine (nice looking statusline)
 
