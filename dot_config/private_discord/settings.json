@@ -12,5 +12,7 @@
   "BACKGROUND_COLOR": "#2c2d32",
   "offloadAdmControls": true,
   "enableHardwareAcceleration": true,
-  "asyncVideoInputDeviceInit": false
+  "asyncVideoInputDeviceInit": false,
+  "openH264Enabled": true,
+  "enableLibOpenH264Electron": false
 }
