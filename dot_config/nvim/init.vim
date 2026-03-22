@@ -163,9 +163,24 @@ nnoremap <C-Q> :q<CR>
 
 " ###################################### Build shortcuts 
 " Call :make run with leader r 
-nnoremap <leader>r :VimuxInterruptRunner<CR> :VimuxRunCommand("make run")<CR>
+nnoremap <leader>r :VimuxInterruptRunner<CR> :lua MakeRun()<CR>
 " Call :make build with leader b
 nnoremap <leader>b :VimuxInterruptRunner<CR> :VimuxRunCommand("make build")<CR>
+lua << EOF
+function _G.MakeRun()
+  local file = vim.fn.expand("%:t:r")
+  local path = vim.fn.expand("%:p:h")
+
+  while path ~= "/" do
+    if vim.fn.filereadable(path .. "/Makefile") == 1 then
+      vim.fn.VimuxRunCommand("make -C " .. path .. " run FILE=" .. file)
+      return
+    end
+    path = vim.fn.fnamemodify(path, ":h")
+  end
+  print("No Makefile found")
+end
+EOF
 
 " ###################################### lualine (nice looking statusline)
 
