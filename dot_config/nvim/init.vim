@@ -164,6 +164,8 @@ nnoremap <C-Q> :q<CR>
 " ###################################### Build shortcuts 
 " Call :make run with leader r 
 nnoremap <leader>r :VimuxInterruptRunner<CR> :lua MakeRun()<CR>
+" Rerun last command with leader p
+nnoremap <leader>p :VimuxInterruptRunner<CR> :VimuxRunLastCommand<CR>
 " Call :make build with leader b
 nnoremap <leader>b :VimuxInterruptRunner<CR> :VimuxRunCommand("make build")<CR>
 lua << EOF
