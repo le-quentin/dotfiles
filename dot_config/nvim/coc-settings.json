@@ -2,7 +2,7 @@
     "coc.preferences.currentFunctionSymbolAutoUpdate": true, // Allows showing function the cursor is in
     "coc.source.around.priority": -1,
     "coc.source.buffer.priority": -2,
-    "codeLens.enable": true,
+    "codeLens.enable": false,
     "java.referencesCodeLens.enabled": false,
     "java.implementationsCodeLens.enabled": true,
     "java.trace.server": "off", //Trace the communications with LSP server
