@@ -262,6 +262,10 @@ function claude() {
 alias dev-to-tst="gc dev && git pull && gc tst && git pull && gr dev && git push"
 alias tst-to-int="gc tst && git pull && gc int && git pull && gr tst && git push"
 
+# parse env vars with direnv
+export DIRENV_LOG_FORMAT=""
+eval "$(direnv hook zsh)"
+
 ###########################################################
 #    OS settings                                          #
 ###########################################################
