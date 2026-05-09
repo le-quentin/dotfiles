@@ -105,7 +105,7 @@ Comment[vi]=Truy cập Internet
 Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
-Exec=prime-run /usr/bin/vivaldi-stable --enable-features=AcceleratedVideoDecodeLinuxGL %U
+Exec=/usr/bin/vivaldi-stable --use-gl=angle --use-angle=gl --use-cmd-decoder=passthrough --enable-features=VaapiVideoDecoder,VaapiVideoEncoder,CanvasOopRasterization,VaapiOnNvidiaGPUs --ignore-gpu-blocklist --enable-gpu-rasterization %U
 StartupNotify=true
 Terminal=false
 Icon=vivaldi
