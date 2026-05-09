@@ -21,3 +21,5 @@
 	path = ~/.cnam-gitconfig
 [alias]
 	stash-staged = "!f() { git stash push -m \"$1\" -- $(git diff --staged --name-only); }; f"
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
