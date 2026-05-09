@@ -115,7 +115,8 @@ export PATH=$PATH:/opt/bin
 # Chezmoi will stoere executables in ~/.local/bin (putting the value last for security reasons, just in case)
 export PATH=$PATH:~/.local/bin
 
-
+# dotnet tools for C-Sharp envs
+export PATH=$PATH:~/.dotnet/tools
 
 DEFAULT_USER=quentin
 # TERM=xterm-255color
