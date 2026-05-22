@@ -23,3 +23,8 @@
 	stash-staged = "!f() { git stash push -m \"$1\" -- $(git diff --staged --name-only); }; f"
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
