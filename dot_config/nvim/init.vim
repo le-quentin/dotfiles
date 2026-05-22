@@ -23,11 +23,8 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " mini.indentscope, because indent-blankline cannot show current indent block (shows local vars scope instead)
 Plug 'echasnovski/mini.indentscope'
 
-" use treesitter, a language parser generator, to get better syntax highlighting for basically all languagaes
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" vimpolyglot, to get syntax highlighting for 500+ file formats
-" Plug 'sheerun/vim-polyglot'
+Plug 'romus204/tree-sitter-manager.nvim'
 
 " Terraform plugins, somehow syntax highlighting wasn't good with treesitter alone
 Plug 'hashivim/vim-terraform'
