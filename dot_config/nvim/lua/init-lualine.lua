@@ -2,7 +2,7 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     -- theme = 'pywal',
-    theme = "catppuccin",
+    theme = "nightfox",
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
