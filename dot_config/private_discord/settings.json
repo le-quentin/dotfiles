@@ -3,7 +3,7 @@
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
     "x": 0,
-    "y": 524,
+    "y": 14,
     "width": 1920,
     "height": 1046
   },
@@ -14,5 +14,9 @@
   "enableHardwareAcceleration": true,
   "asyncVideoInputDeviceInit": false,
   "openH264Enabled": true,
-  "enableLibOpenH264Electron": false
+  "enableLibOpenH264Electron": false,
+  "DESKTOP_TTI_SPLASH_USE_WEBP": true,
+  "DESKTOP_TTI_DNSTCP_WARMUP": true,
+  "DESKTOP_TTI_EARLY_UPDATE_CHECK": true,
+  "DESKTOP_TTI_REMOVE_V8_CACHE_CLEAR": true
 }
