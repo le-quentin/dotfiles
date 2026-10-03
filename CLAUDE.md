@@ -10,6 +10,8 @@ Whatever the language is, *NEVER OVER COMMENT CODE*. Clear variable and function
 If we're not in one of those cases, a private function, or whatever resource the language can offer, with a proper name, will be better than a comment.
 </THIS IS VERY IMPORTANT>
 
+When writing documentation or specs (typically .md files), *don't format yourself by adding line breaks*. You tend to add line breaks automatically at a certain line width, and it's not good, the md parser and/or text editor will take care of line wrap.
+
 In object oriented languages, we hate to see constructors with too many arguments, it's not readable. 3 is ok; 4 is a lot and should be the absolute maximum when doing it another way is not convenient. Beyond that number, we absolutely want a builder pattern or something similar to keep things readable (typically in Java, Lombok is perfect to easily implement builders).
 
 # Workflow
