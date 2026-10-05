@@ -27,5 +27,6 @@
     <property name="dpms-on-ac-off" type="uint" value="0"/>
     <property name="general-notification" type="bool" value="true"/>
     <property name="brightness-step-count" type="uint" value="30"/>
+    <property name="lock-screen-suspend-hibernate" type="bool" value="false"/>
   </property>
 </channel>
