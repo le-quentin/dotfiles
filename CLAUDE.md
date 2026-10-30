@@ -2,22 +2,8 @@
 
 ## Code style
 
-</THIS IS VERY IMPORTANT>
-Whatever the language is, *NEVER OVER COMMENT CODE*. Clear variable and functions names should be enough to understand code intent in 99% cases. Keep comments for rare cases where either:
-- The algorithmic logic is especially tricky
-- The implementation is surprising, for instance when we're implementing a workaround instead of doing something proper
+To make sure comments aren't overdone, in any turn where you added or modified code comments, you must include a comment recap in the final message of that turn (the one that ends your turn and returns control to me). For each comment block, show the diff with the comment (the added comments + few lines of context below), and name the choice a later reader would otherwise undo: the construct or workaround chosen, the obvious alternative, and why — and why a name could not carry it. Any comment you cannot justify this way must be removed before the recap, not flagged for discussion. If you added no comments, no recap — never mention it.
 
-If we're not in one of those cases, a private function, or whatever resource the language can offer, with a proper name, will be better than a comment.
-</THIS IS VERY IMPORTANT>
+## Workflow
 
-When writing documentation or specs (typically .md files), *don't format yourself by adding line breaks*. You tend to add line breaks automatically at a certain line width, and it's not good, the md parser and/or text editor will take care of line wrap.
-
-In object oriented languages, we hate to see constructors with too many arguments, it's not readable. 3 is ok; 4 is a lot and should be the absolute maximum when doing it another way is not convenient. Beyond that number, we absolutely want a builder pattern or something similar to keep things readable (typically in Java, Lombok is perfect to easily implement builders).
-
-# Workflow
-
-As a general rule of thumb, you can run test suites yourself to validate a code change didn't produce any regression, and run the app locally when appropriate.
-
-Unless explicitly asked, don't implement tests yourself.
-
-Never add a dependency or library to the project by yourself, always ask for permission first. Whenever suggesting a library, also suggest me alternatives. Any library you suggest should be *open source*, *popular* and *currently maintained*. Give me a short summary of all libraries you suggest (number of stars, last commit date, approximative release frequency, github repo link).
+Unless explicitly given permission, you MUST NOT use git commit or git push. The user will always take care of that.
