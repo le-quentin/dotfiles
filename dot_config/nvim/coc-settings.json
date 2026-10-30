@@ -49,4 +49,7 @@
     },
     "rust-analyzer.cargo.buildScripts.enable": true,
     "rust-analyzer.procMacro.enable": true,
+    "json.schemaDownload.trustedDomains": {
+      "https://www.schemastore.org": true
+    },
 }
