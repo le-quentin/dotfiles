@@ -247,7 +247,8 @@ unset DOCKER_HOST
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Claude Code
-alias claude-fairlyne="CLAUDE_CONFIG_DIR=~/.claude-fairlyne command claude"
+# For Fairlyne, we disable auto-memory because we need to share good practices rather than add them to just my machine
+alias claude-fairlyne="CLAUDE_CONFIG_DIR=~/.claude-fairlyne CLAUDE_CODE_DISABLE_AUTO_MEMORY=1 command claude"
 alias claude-perso="CLAUDE_CONFIG_DIR=~/.claude command claude"
 function claude() {
     local current_dir="$PWD"
