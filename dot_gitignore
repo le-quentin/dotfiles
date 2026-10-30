@@ -24,3 +24,7 @@ tags
 
 # Python venv dirs
 venv/
+
+**/.claude/.cc-writes/
+
+**/.claude/settings.local.json
