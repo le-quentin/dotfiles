@@ -14,4 +14,4 @@ When the user corrects how you work, propose where the lesson belongs (a project
 
 ## Testing
 
-What proves a change works survives the session: a check driven by a browser, a CLI or an API client is written as a committed test in the project's test framework, not a throwaway script in the scratchpad (fine for debugging only).
+What proves a change to a project's code works survives the session: a check driven by a browser, a CLI or an API client is written as a committed test in the project's test framework, not a throwaway script in the scratchpad (fine for debugging only). Agent tooling (skills, agents, hooks, their scripts) is checked by hand and the check is reported, with no committed test.
