@@ -1,9 +1,13 @@
 # General instructions
 
-## Code style
-
-To make sure comments aren't overdone, in any turn where you added or modified code comments, you must include a comment recap in the final message of that turn (the one that ends your turn and returns control to me). For each comment block, show the diff with the comment (the added comments + few lines of context below), and name the choice a later reader would otherwise undo: the construct or workaround chosen, the obvious alternative, and why — and why a name could not carry it. Any comment you cannot justify this way must be removed before the recap, not flagged for discussion. If you added no comments, no recap — never mention it.
-
 ## Workflow
 
-Unless explicitly given permission, you MUST NOT use git commit or git push. The user will always take care of that.
+Never git push: the user does it. Never git commit unless the user explicitly allows it, or a project's CLAUDE.md or skill grants it (e.g. commits on a feature branch).
+
+When the user asks a question about the state of things ("what should I do?", "what's wrong?"), answer and explain, then stop: don't run builds or checks, don't fix things on their behalf; offer it in one line if relevant.
+
+Never install anything on the host without discussing it first (systemd units, services, daemons, system packages): containers are preferred. A plan that changes where or how something runs says so up front, with its reason and its alternative.
+
+Never write to the chezmoi source (`~/.local/share/chezmoi`), never run `chezmoi apply`/`add`/`edit`, never commit in that repo. Before editing a file under `~` that chezmoi manages (`chezmoi managed`), stop: propose the diff and let the user apply it.
+
+When the user corrects how you work, propose where the lesson belongs (a project's CLAUDE.md, a skill, a doc, or this file) with the exact text, rather than a memory; apply it on their OK.
