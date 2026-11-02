@@ -11,3 +11,7 @@ Never install anything on the host without discussing it first (systemd units, s
 Never write to the chezmoi source (`~/.local/share/chezmoi`), never run `chezmoi apply`/`add`/`edit`, never commit in that repo. Before editing a file under `~` that chezmoi manages (`chezmoi managed`), stop: propose the diff and let the user apply it.
 
 When the user corrects how you work, propose where the lesson belongs (a project's CLAUDE.md, a skill, a doc, or this file) with the exact text, rather than a memory; apply it on their OK.
+
+## Testing
+
+What proves a change works survives the session: a check driven by a browser, a CLI or an API client is written as a committed test in the project's test framework, not a throwaway script in the scratchpad (fine for debugging only).
