@@ -8,7 +8,7 @@ When the user asks a question about the state of things ("what should I do?", "w
 
 Never install anything on the host without discussing it first (systemd units, services, daemons, system packages): containers are preferred. A plan that changes where or how something runs says so up front, with its reason and its alternative.
 
-Never write to the chezmoi source (`~/.local/share/chezmoi`), never run `chezmoi apply`/`add`/`edit`, never commit in that repo. Before editing a file under `~` that chezmoi manages (`chezmoi managed`), stop: propose the diff and let the user apply it.
+Never touch chezmoi itself: no write to its source (`~/.local/share/chezmoi`), no `chezmoi apply`/`add`/`re-add`/`edit`, no commit in that repo. The files it deploys under `~` (listed by `chezmoi managed`) are ordinary local files: edit them like any other config file once the user has approved the change. The user carries changes back into chezmoi themselves.
 
 When the user corrects how you work, propose where the lesson belongs (a project's CLAUDE.md, a skill, a doc, or this file) with the exact text, rather than a memory; apply it on their OK.
 
