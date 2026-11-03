@@ -1,0 +1,3 @@
+# Domains whose traffic goes through the Fairlyne VPN when it is connected.
+# One domain per line, subdomains included. Then run: sudo ~/.config/fairlyne-vpn/install
+fairlyne.com

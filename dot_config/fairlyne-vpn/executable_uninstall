@@ -1,0 +1,31 @@
+#!/bin/bash
+# Removes everything ./install put in place and restores the previous behaviour
+# (VPN captures all traffic, NetworkManager's default DNS handling).
+# Usage: sudo ~/.config/fairlyne-vpn/uninstall
+
+set -uo pipefail
+
+[[ $EUID -eq 0 ]] || { echo "Run with sudo: sudo $0" >&2; exit 1; }
+
+HERE=$(dirname "$(realpath "$0")")
+CONNECTION_FILE=$(sed -n 's/^CONNECTION_FILE=\([^ ]*\).*/\1/p' "$HERE/split.sh")
+NFT_TABLE=$(sed -n 's/^NFT_TABLE="\(.*\)".*/\1/p' "$HERE/split.sh")
+FWMARK=$(sed -n 's/^FWMARK=\([^ ]*\).*/\1/p' "$HERE/split.sh")
+ROUTE_TABLE=$(sed -n 's/^ROUTE_TABLE=\([^ ]*\).*/\1/p' "$HERE/split.sh")
+# shellcheck source=/dev/null
+source "$HERE/connection.conf" || { echo "Missing $HERE/connection.conf" >&2; exit 1; }
+
+rm -fv /etc/NetworkManager/conf.d/fairlyne-vpn.conf \
+       /etc/NetworkManager/dnsmasq.d/fairlyne-vpn.conf \
+       /etc/NetworkManager/dispatcher.d/50-fairlyne-vpn \
+       "$CONNECTION_FILE"
+
+nmcli connection modify "$VPN_UUID" ipv4.never-default no ipv6.never-default no ipv4.dns-search ""
+echo "VPN connection: never-default disabled, routing domains removed (full tunnel again at next connection)"
+
+ip route flush table "$ROUTE_TABLE" 2>/dev/null
+while ip rule del fwmark "$FWMARK" lookup "$ROUTE_TABLE" 2>/dev/null; do :; done
+nft delete table inet "$NFT_TABLE" 2>/dev/null && echo "Deleted nftables table $NFT_TABLE"
+
+nmcli general reload
+echo "NetworkManager reloaded: back to default DNS handling."

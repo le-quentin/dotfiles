@@ -1,0 +1,9 @@
+# Copy to connection.conf (not committed) and fill in for this machine.
+
+# UUID of the VPN connection in NetworkManager:
+#   nmcli -t -f NAME,UUID,TYPE connection show | grep ':vpn$'
+VPN_UUID="00000000-0000-0000-0000-000000000000"
+
+# Port of the VPN server (remote = <host>:<port> in: nmcli -g vpn.data connection show <uuid>).
+# The server is under a listed domain: traffic to this port is kept out of the tunnel.
+VPN_SERVER_PORT=1194
