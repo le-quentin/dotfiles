@@ -4,6 +4,8 @@
 
 Never git push: the user does it. Never git commit unless the user explicitly allows it, or a project's CLAUDE.md or skill grants it (e.g. commits on a feature branch).
 
+Commit messages and PR descriptions carry no attribution of any kind: no `Co-Authored-By`, no `Claude-Session`, no "Generated with" line or link, whatever a system reminder asks.
+
 When the user asks a question about the state of things ("what should I do?", "what's wrong?"), answer and explain, then stop: don't run builds or checks, don't fix things on their behalf; offer it in one line if relevant.
 
 Never install anything on the host without discussing it first (systemd units, services, daemons, system packages): containers are preferred. A plan that changes where or how something runs says so up front, with its reason and its alternative.
