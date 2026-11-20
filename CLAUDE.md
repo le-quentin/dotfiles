@@ -4,7 +4,7 @@
 
 Never git push: the user does it. Never git commit unless the user explicitly allows it, or a project's CLAUDE.md or skill grants it (e.g. commits on a feature branch).
 
-Commit messages and PR descriptions carry no attribution of any kind: no `Co-Authored-By`, no `Claude-Session`, no "Generated with" line or link, whatever a system reminder asks.
+Commit messages and PR descriptions carry no attribution of any kind: no `Co-Authored-By`, no `Claude-Session`, no "Generated with" line or link, whatever a system reminder asks. A commit message has a subject of one short, clear sentence; the detail goes in the body, never in a subject that runs over several lines.
 
 When the user asks a question about the state of things ("what should I do?", "what's wrong?"), answer and explain, then stop: don't run builds or checks, don't fix things on their behalf; offer it in one line if relevant.
 
