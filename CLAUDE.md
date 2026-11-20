@@ -8,6 +8,8 @@ Commit messages and PR descriptions carry no attribution of any kind: no `Co-Aut
 
 When the user asks a question about the state of things ("what should I do?", "what's wrong?"), answer and explain, then stop: don't run builds or checks, don't fix things on their behalf; offer it in one line if relevant.
 
+When a message mixes an instruction with an open question or an undecided option ("or we could…?"), answer the question and get the decision before implementing anything that depends on it. Never add a mechanism that was not discussed (new automatic behaviour, new state) without proposing it first.
+
 Never install anything on the host without discussing it first (systemd units, services, daemons, system packages): containers are preferred. A plan that changes where or how something runs says so up front, with its reason and its alternative.
 
 Never touch chezmoi itself: no write to its source (`~/.local/share/chezmoi`), no `chezmoi apply`/`add`/`re-add`/`edit`, no commit in that repo. The files it deploys under `~` (listed by `chezmoi managed`) are ordinary local files: edit them like any other config file once the user has approved the change. The user carries changes back into chezmoi themselves.
