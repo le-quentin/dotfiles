@@ -20,6 +20,8 @@ When the user corrects how you work, propose where the lesson belongs (a project
 
 What proves a change to a project's code works survives the session: a check driven by a browser, a CLI or an API client is written as a committed test in the project's test framework, not a throwaway script in the scratchpad (fine for debugging only). Agent tooling (skills, agents, hooks, their scripts) is checked by hand and the check is reported, with no committed test.
 
+In the agent's shell, `claude` is a function that sets `CLAUDE_CONFIG_DIR` from the current folder: a command that needs another configuration folder runs `command claude`, or runs in a script started by bash.
+
 ## Writing
 
 Never hard-wrap prose written into a file (a doc, a skill, an agent, a CLAUDE.md, a commit message's body): a paragraph or a list item is one line, however long, and the editor wraps it. A line break is put only where the format gives it a meaning (a paragraph, a list item, a table row, a code block, a commit's subject). A project's own convention comes first, when it states or enforces one (a formatter, a linter of prose or of commits, a contributing guide).
