@@ -1,0 +1,32 @@
+# Fonts of the desktop (polybar, alacritty, rofi), downloaded by chezmoi into ~/.local/share/fonts instead of being committed.
+# Every URL is pinned to a version, so that a new machine gets the same files: polybar's config and media.sh hardcode some code points (Simple Icons moves its code points between versions).
+# SF Pro is not here: Apple's license forbids redistributing it, so it is copied by hand.
+
+# Brand logos (Vivaldi, Brave) of polybar's media module
+[".local/share/fonts/SimpleIcons.ttf"]
+    type = "archive-file"
+    url = "https://registry.npmjs.org/simple-icons-font/-/simple-icons-font-16.38.1.tgz"
+    path = "package/font/SimpleIcons.ttf"
+
+# Icons of the polybar themes (feather for forest, icomoon-feather for panels)
+[".local/share/fonts/feather/feather.ttf"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/adi1090x/polybar-themes/7735b96afd72f835c7c909599265fb431886d7c0/fonts/feather.ttf"
+
+[".local/share/fonts/feather/icomoon_feather.ttf"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/adi1090x/polybar-themes/7735b96afd72f835c7c909599265fb431886d7c0/fonts/panels/icomoon_feather.ttf"
+
+# Font Awesome 6 (Free Solid, Free Regular, Brands)
+[".local/share/fonts/font-awesome-6"]
+    type = "archive"
+    url = "https://github.com/FortAwesome/Font-Awesome/releases/download/6.2.0/fontawesome-free-6.2.0-desktop.zip"
+    stripComponents = 2
+    include = ["*/otfs/*.otf"]
+
+# JetBrains Mono (alacritty, rofi), static fonts only
+[".local/share/fonts/jetbrains-mono"]
+    type = "archive"
+    url = "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.225/JetBrainsMono-2.225.zip"
+    stripComponents = 2
+    include = ["fonts/ttf/*.ttf"]
