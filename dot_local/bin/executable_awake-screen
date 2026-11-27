@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# awake-screen start|watch|stop: the screen's settings while a session keeps the laptop awake (keep-awake-while, in
+# ~/.zshrc), run by awake-screen.service. The laptop does not sleep then, but its screen still turns off: after
+# 10 minutes idle, or as soon as the lid closes.
+#
+#   start  saves the screen's own settings, then sets the temporary ones
+#   watch  turns the screen off each time the lid closes, until stopped
+#   stop   gives the screen its own settings back, unless they were changed while it ran
+set -euo pipefail
+
+saved="${XDG_RUNTIME_DIR:?XDG_RUNTIME_DIR is not set}/awake-screen.saved"
+temporary="0 0 600"
+
+# The screen's settings: whether DPMS is on, then its standby, suspend and off timeouts, in seconds.
+settings() {
+    xset q | awk '/DPMS is/ {on = $3} /Standby:/ {timeouts = $2 " " $4 " " $6} END {print on, timeouts}'
+}
+
+case "${1:-}" in
+    start)
+        settings >"$saved"
+        xset dpms $temporary
+        ;;
+    watch)
+        gdbus monitor --system --dest org.freedesktop.UPower --object-path /org/freedesktop/UPower |
+            while read -r line; do
+                if [[ $line == *"'LidIsClosed': <true>"* ]]; then
+                    xset dpms force off
+                fi
+            done
+        ;;
+    stop)
+        [[ -f $saved ]] || exit 0
+        read -r on timeouts <"$saved"
+        rm -f "$saved"
+        # Changed while it ran: those settings are the user's, and stay.
+        [[ "$(settings)" == "Enabled $temporary" ]] || exit 0
+        xset dpms $timeouts
+        if [[ $on == Disabled ]]; then
+            xset -dpms
+        fi
+        ;;
+    *)
+        echo "usage: awake-screen start|watch|stop" >&2
+        exit 2
+        ;;
+esac

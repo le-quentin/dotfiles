@@ -250,15 +250,29 @@ unset DOCKER_HOST
 # For Fairlyne, we disable auto-memory because we need to share good practices rather than add them to just my machine
 alias claude-fairlyne="CLAUDE_CONFIG_DIR=~/.claude-fairlyne CLAUDE_CODE_DISABLE_AUTO_MEMORY=1 command claude"
 alias claude-perso="CLAUDE_CONFIG_DIR=~/.claude command claude"
-function claude() {
-    local current_dir="$PWD"
-    local fairlyne_dir="${HOME}/fairlyne"
 
-    if [[ "$current_dir" == "$fairlyne_dir" ]] || [[ "$current_dir" == "$fairlyne_dir"/* ]]; then
-      claude-fairlyne "$@"
+# The Claude account follows the folder: Fairlyne's under ~/fairlyne, the personal one elsewhere.
+# Under ~/truman, the laptop stays awake while the session runs, so that remote control from the phone and long work go on.
+function claude() {
+    if [[ $PWD == $HOME/fairlyne(|/*) ]]; then
+        claude-fairlyne "$@"
+    elif [[ $PWD == $HOME/truman(|/*) ]]; then
+        # systemd-inhibit runs a program, not the claude-perso alias: the alias's settings are repeated here.
+        keep-awake-while "Claude Code" env CLAUDE_CONFIG_DIR=$HOME/.claude claude "$@"
     else
-      claude-perso "$@"
+        claude-perso "$@"
     fi
+}
+
+# keep-awake-while WHO COMMAND [ARG…]: runs COMMAND while the laptop may neither sleep nor suspend when its lid closes.
+# Its screen still turns off, after 10 minutes idle or as soon as the lid closes: awake-screen.service, which the scope
+# wants, sets that up for as long as one such command runs, and gives the screen its own settings back after the last.
+# COMMAND is run by systemd-inhibit, so it is a program, never an alias nor a function.
+function keep-awake-while() {
+    local who="$1"
+    shift
+    systemd-run --user --scope --quiet --property=Wants=awake-screen.service --property=After=awake-screen.service \
+        systemd-inhibit --what=handle-lid-switch:sleep:idle --who="$who" --why="Keeping the laptop awake while it runs" "$@"
 }
 
 alias dev-to-tst="gc dev && git pull && gc tst && git pull && gr dev && git push"

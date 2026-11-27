@@ -1,0 +1,11 @@
+# The screen's settings while at least one session keeps the laptop awake (keep-awake-while, in ~/.zshrc): each such
+# session runs in a scope that wants this service, so the first one starts it, and systemd stops it once the last one
+# has ended, however it ended (StopWhenUnneeded).
+[Unit]
+Description=Screen off after 10 minutes idle or when the lid closes, while a session keeps the laptop awake
+StopWhenUnneeded=yes
+
+[Service]
+ExecStartPre=%h/.local/bin/awake-screen start
+ExecStart=%h/.local/bin/awake-screen watch
+ExecStopPost=%h/.local/bin/awake-screen stop
